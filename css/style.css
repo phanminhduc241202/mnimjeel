@@ -111,10 +111,13 @@ section {
 }
 
 .header .logo {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-weight: 700;
+  text-transform: none;
   text-decoration: none;
   margin-right: auto;
   font-size: 2.5rem;
-  color: #10221b;
+  color: #e950b8;
   font-weight: bolder;
 }
 
@@ -126,7 +129,7 @@ section {
   text-decoration: none;
   margin-left: 2rem;
   font-size: 1.7rem;
-  color: #10221b;
+  color: #e950b8;
 }
 
 .header .navbar a:hover {
@@ -1568,6 +1571,25 @@ a .news__item:hover {
   transform: translateY(19px);
   }
 }
+
+@media (max-width: 768px) {
+    .home .home-slider .box {
+        /* Thiết lập chiều cao bằng chính chiều cao của màn hình điện thoại hiện tại */
+        height: 100vh !important; 
+        
+        /* Căn giữa ảnh dọc */
+        background-position: center center !important;
+        
+        /* Vẫn giữ cover để ảnh full màn hình không bị viền trắng. 
+           Do màn hình dọc + ảnh dọc, nội dung sẽ không bị cắt mất. 
+        */
+        background-size: cover !important; 
+    }
+}
+
+
+
+
 
 
 
