@@ -525,43 +525,50 @@
                         },
                         {
                             "id":  14,
-                            "name":  "Mứt Chả Mực",
-                            "category":  "Hải Sản",
-                            "district":  "Q5",
-                            "address":  "888 Lý Tự Trọng, Q5, TPHCM",
-                            "phone":  "0934567800",
-                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
-                            "openTime":  "10:30",
-                            "closeTime":  "21:30",
-                            "priceRange":  "$$",
+                            "name":  "The Sushi Bar Thiên Quế",
+                            "category":  ["Nhà hàng Nhật","Sushi" ],
+                            "district":  "Quận 7",
+                            "address":  "Số 116 Đường số 47 Tân Hưng, Quận 7, TPHCM",
+                            "phone":  "0908582318",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/LrzkuFZMLpx7rf497",
+                            "openTime":  "11:00",
+                            "closeTime":  "22:00",
+                            "priceRange":  "100K",
                             "rating":  4.5,
                             "reviewCount":  167,
-                            "description":  "Chả mực và các món hải sản tươi mới hàng ngày.",
-                            "image":  "images/restaurants/cha-muc.jpg",
+                            "description":  "The Sushi Bar Thiên Quế nổi tiếng với sushi tươi ngon và không gian ấm cúng.",
+                            "image":  "images/restaurants/Q7/restaurant/The_sushi_bar/nen.jpg",
                             "images":  [
-                                           "images/restaurants/cha-muc-1.jpg"
+                                           "images/restaurants/Q7/restaurant/The_sushi_bar/1.jpg",
+                                           "images/restaurants/Q7/restaurant/The_sushi_bar/2.jpg",
+                                           "images/restaurants/Q7/restaurant/The_sushi_bar/0.jpg",
+                                           "images/restaurants/Q7/restaurant/The_sushi_bar/3.jpg"
                                        ],
                             "menu":  [
                                          {
-                                             "name":  "Chả mực nướng",
-                                             "image":  "images/restaurants/cha-muc.jpg"
+                                             "name":  "Menu 1",
+                                             "image":  "images/restaurants/Q7/restaurant/The_sushi_bar/menu1.jpg"
                                          },
                                          {
-                                             "name":  "Mực xào dây",
-                                             "image":  "images/restaurants/cha-muc.jpg"
+                                             "name":  "Menu 2",
+                                             "image":  "images/restaurants/Q7/restaurant/The_sushi_bar/menu2.jpg"
                                          },
                                          {
-                                             "name":  "Tôm chiên",
-                                             "image":  "images/restaurants/cha-muc.jpg"
+                                             "name":  "Menu 3",
+                                             "image":  "images/restaurants/Q7/restaurant/The_sushi_bar/menu3.jpg"
+                                         },
+                                         {
+                                             "name":  "Menu 4",
+                                             "image":  "images/restaurants/Q7/restaurant/The_sushi_bar/menu4.jpg"
                                          }
                                      ],
                             "tiktokVideos":  [
-
+                                                "https://www.tiktok.com/@vochongthaokhanh/video/7650724857545526546"
                                              ],
                             "tags":  [
-                                         "hải sản",
-                                         "seafood",
-                                         "lunch"
+                                         "Sushi",
+                                         "Nhà hang Nhật",
+                                         "seafood"
                                      ],
                             "posterImage":  "images/banners/mnimjeel_bgr.png"
                         },

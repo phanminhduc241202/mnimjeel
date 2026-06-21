@@ -962,7 +962,7 @@
 
 .top-ad-swiper {
     width: 100%;
-    height: 250px; /* Chiều cao poster ngang */
+    height: 350px; /* Chiều cao poster ngang */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
