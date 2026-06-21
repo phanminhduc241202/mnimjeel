@@ -1,0 +1,1038 @@
+/* ===================================
+   MEGA FILTER
+   =================================== */
+
+.mega-filter {
+    position: relative;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.09);
+    margin-bottom: 2.5rem;
+}
+
+.mega-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.8rem;
+    flex-wrap: wrap;
+}
+
+/* Search wrap */
+.mega-filter-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 0.8rem 1.4rem;
+    flex: 1;
+    min-width: 20rem;
+    border: 2px solid transparent;
+    transition: all .2s ease;
+}
+
+.mega-filter-search-wrap:focus-within {
+    border-color: #219150;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(33,145,80,0.1);
+}
+
+.mega-filter-search-wrap i {
+    color: #aaa;
+    font-size: 1.4rem;
+}
+
+.mega-filter-search-wrap input {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: #333;
+    flex: 1;
+}
+
+.mega-filter-search-wrap input::placeholder {
+    color: #aaa;
+}
+
+/* Filter tab buttons */
+.mega-filter-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.6rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fff;
+    color: #444;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s ease;
+    white-space: nowrap;
+}
+
+.mega-filter-tab:hover {
+    border-color: #219150;
+    color: #219150;
+    background: #f0faf4;
+}
+
+.mega-filter-tab.active {
+    border-color: #219150;
+    background: #219150;
+    color: #fff;
+}
+
+.mega-filter-tab.has-selection {
+    border-color: #219150;
+    color: #219150;
+    font-weight: 600;
+}
+
+.mega-filter-tab.active.has-selection {
+    background: #219150;
+    color: #fff;
+}
+
+.tab-count {
+    background: #e950b8;
+    color: #fff;
+    border-radius: 50%;
+    min-width: 2rem;
+    height: 2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0 0.4rem;
+}
+
+.mega-filter-tab.has-selection .tab-count {
+    display: inline-flex;
+}
+
+.mega-filter-tab.active .tab-count {
+    background: #fff;
+    color: #219150;
+}
+
+.mega-filter-tab .fa-chevron-down {
+    font-size: 1.1rem;
+    transition: transform .2s ease;
+}
+
+.mega-filter-tab.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Reset button */
+.mega-filter-reset-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.4rem;
+    border: 2px solid #f44;
+    border-radius: 10px;
+    background: #fff;
+    color: #f44;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all .2s ease;
+    white-space: nowrap;
+}
+
+.mega-filter-reset-btn:hover {
+    background: #f44;
+    color: #fff;
+}
+
+/* Dropdown panel */
+.mega-filter-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.14);
+    border: 1px solid #eee;
+    z-index: 9999;
+    padding: 2rem 2.5rem;
+    animation: mfSlideDown .18s ease;
+}
+
+.mega-filter-dropdown.open {
+    display: block;
+}
+
+@keyframes mfSlideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.mega-filter-dropdown-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #10221b;
+    margin-bottom: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Chips grid */
+.mega-filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    max-height: 24rem;
+    overflow-y: auto;
+    padding-bottom: 0.5rem;
+}
+
+.mega-filter-chips::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+}
+.mega-filter-chips::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 4px;
+}
+
+.mega-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.6rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 50px;
+    background: #fafafa;
+    color: #444;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all .15s ease;
+    user-select: none;
+}
+
+.mega-filter-chip:hover {
+    border-color: #219150;
+    color: #219150;
+    background: #f0faf4;
+}
+
+.mega-filter-chip.selected {
+    border-color: #219150;
+    background: #219150;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Dropdown footer */
+.mega-filter-dropdown-footer {
+    margin-top: 1.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.mega-filter-dropdown-footer button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2.4rem;
+    background: #219150;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.mega-filter-dropdown-footer button:hover {
+    background: #1a7040;
+}
+
+/* Active filter tags bar */
+.mega-filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1rem 1.8rem 1.4rem;
+    border-top: 1px solid #f5f5f5;
+    align-items: center;
+}
+
+.mega-filter-tags-label {
+    font-size: 1.2rem;
+    color: #999;
+    font-weight: 500;
+    margin-right: 0.4rem;
+}
+
+.mega-filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1rem 0.4rem 1.2rem;
+    background: #e8f5ee;
+    border: 1px solid #9ddbb5;
+    color: #1a7040;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    animation: mfTagIn .15s ease;
+}
+
+@keyframes mfTagIn {
+    from { opacity: 0; transform: scale(.85); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.mega-filter-tag button {
+    background: none;
+    border: none;
+    color: #1a7040;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    justify-content: center;
+    transition: all .15s ease;
+}
+
+.mega-filter-tag button:hover {
+    background: #f44;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mega-filter-bar {
+        padding: 1rem;
+        gap: 0.7rem;
+    }
+
+    .mega-filter-search-wrap {
+        min-width: 100%;
+        order: -1;
+    }
+
+    .mega-filter-dropdown {
+        padding: 1.5rem;
+    }
+
+    .mega-filter-chip {
+        font-size: 1.2rem;
+        padding: 0.5rem 1.2rem;
+    }
+}
+
+
+/* ===================================
+   RESTAURANT CARDS & LISTINGS
+   =================================== */
+
+/* Restaurant Card Styles */
+.restaurant-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all .3s ease;
+  position: relative;
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+}
+
+.restaurant-card:hover .restaurant-name {
+  color: #219150;
+}
+
+.restaurant-image {
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.restaurant-card:hover .restaurant-image img {
+  transform: scale(1.05);
+}
+
+.restaurant-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #e950b8;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.restaurant-favorite {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease;
+  z-index: 10;
+}
+
+.restaurant-favorite:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.restaurant-favorite.active {
+  color: #e950b8;
+}
+
+.restaurant-info {
+  padding: 1.5rem;
+}
+
+.restaurant-header {
+  margin-bottom: 1rem;
+}
+
+.restaurant-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #10221b;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-category {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #219150;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-location i {
+  color: #219150;
+}
+
+.restaurant-district {
+  color: #10221b;
+  font-weight: 600;
+}
+
+.restaurant-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  color: #ff9800;
+  font-size: 1.3rem;
+}
+
+.rating-text {
+  color: #10221b;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.review-count {
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.restaurant-price {
+  background: #10221b;
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Restaurant List View */
+.restaurant-list {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  transition: all .3s ease;
+}
+
+.restaurant-list:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-list-image {
+  width: 25%;
+  min-width: 20rem;
+  height: 20rem;
+}
+
+.restaurant-list-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.restaurant-list-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.restaurant-list-header {
+  margin-bottom: 1rem;
+}
+
+.restaurant-list-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #10221b;
+  margin-bottom: 0.5rem;
+}
+
+.restaurant-list-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.restaurant-list-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 1.3rem;
+}
+
+.restaurant-list-meta i {
+  color: #219150;
+}
+
+.restaurant-list-description {
+  color: #666;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.restaurant-list-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.restaurant-list-rating {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.restaurant-list-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.restaurant-list-stars .stars {
+  font-size: 1.5rem;
+}
+
+.restaurant-list-rating-text {
+  font-weight: 600;
+  color: #10221b;
+}
+
+.restaurant-list-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Filter Panel */
+.filter-panel {
+  background: #f5f5f5;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.filter-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #10221b;
+  margin-bottom: 1.5rem;
+}
+
+.filter-group {
+  margin-bottom: 2rem;
+}
+
+.filter-group-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #10221b;
+  margin-bottom: 1rem;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter-option input[type="checkbox"],
+.filter-option input[type="radio"] {
+  width: 1.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+  accent-color: #219150;
+}
+
+.filter-option label {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #333;
+  flex: 1;
+}
+
+.filter-option label:hover {
+  color: #219150;
+}
+
+.filter-range {
+  margin-top: 1rem;
+}
+
+.filter-range input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
+
+.filter-range-display {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  color: #666;
+}
+
+.filter-apply {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-apply .btn {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* View Toggle */
+.view-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+
+.view-toggle button {
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #ddd;
+  background: #fff;
+  color: #10221b;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  transition: all .3s ease;
+}
+
+.view-toggle button:hover,
+.view-toggle button.active {
+  border-color: #219150;
+  background: #219150;
+  color: #fff;
+}
+
+/* Results Info */
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+.results-count {
+  font-size: 1.5rem;
+  color: #10221b;
+  font-weight: 600;
+}
+
+.results-sort {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.results-sort label {
+  font-size: 1.4rem;
+  color: #666;
+}
+
+.results-sort select {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.no-results i {
+  font-size: 5rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.no-results h3 {
+  font-size: 2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+/* ===================================
+   6-COLUMN GRID
+   =================================== */
+.grid-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.6rem;
+}
+
+.grid-6 .restaurant-image {
+  height: 17rem;
+}
+
+.grid-6 .restaurant-name {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 1280px) {
+  .grid-6 { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 900px) {
+  .grid-6 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-6 { grid-template-columns: repeat(2, 1fr); }
+  .grid-6 .restaurant-image { height: 14rem; }
+}
+
+/* ===================================
+   PAGINATION
+   =================================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  min-width: 3.8rem;
+  height: 3.8rem;
+  padding: 0 1rem;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #10221b;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination button:hover:not(:disabled):not(.pagination-ellipsis) {
+  border-color: #219150;
+  background: #219150;
+  color: #fff;
+}
+
+.pagination button.active {
+  background: #219150;
+  color: #fff;
+  border-color: #219150;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(33,145,80,0.35);
+}
+
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pagination button.pagination-ellipsis {
+  border: none;
+  background: transparent;
+  cursor: default;
+  letter-spacing: 0.1em;
+  font-size: 1.6rem;
+}
+
+.pagination-info {
+  font-size: 1.3rem;
+  color: #666;
+  margin-left: 1rem;
+}
+
+@media (max-width: 480px) {
+  .pagination button { min-width: 3.2rem; height: 3.2rem; font-size: 1.3rem; }
+}
+
+/* Responsive - List View */
+@media (max-width: 768px) {
+  .restaurant-list {
+    flex-direction: column;
+  }
+
+  .restaurant-list-image {
+    width: 100%;
+    min-width: auto;
+    height: 20rem;
+  }
+
+  .restaurant-list-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .restaurant-list-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .restaurant-list-actions {
+    width: 100%;
+  }
+
+  .restaurant-list-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-card {
+    margin-bottom: 1rem;
+  }
+
+  .restaurant-name {
+    font-size: 1.5rem;
+  }
+
+  .restaurant-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .filter-panel {
+    padding: 1.5rem;
+  }
+
+  .view-toggle {
+    justify-content: center;
+  }
+
+  .results-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .results-header {
+    margin-bottom: 1rem;
+  }
+
+  .results-sort {
+    width: 100%;
+  }
+
+  .results-sort select {
+    flex: 1;
+  }
+}
+
+/* ===================================
+   BANNERS / ADVERTISEMENTS
+   =================================== */
+
+/* 1. Poster Ngang (Top Banner) */
+.top-ad-banner {
+    max-width: 2558px; /* Độ rộng bằng với danh sách quán */
+    max-height: 420px; /* Chiều cao poster ngang */
+    margin: 0 auto 1rem auto;
+    padding: 0 2rem;
+}
+
+.top-ad-swiper {
+    width: 100%;
+    height: 250px; /* Chiều cao poster ngang */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.top-ad-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chỉnh màu cho các chấm tròn pagination của poster ngang */
+.top-ad-swiper .swiper-pagination-bullet-active {
+    background: #219150;
+}
+
+/* 2. Poster Dọc 2 Bên (Side Banners) */
+.side-banner {
+    position: fixed;
+    top: 15rem; /* Cách top để không lẹm vào Header */
+    width: 160px; /* Chiều rộng chuẩn của quảng cáo dọc */
+    height: 600px;
+    z-index: 900;
+    display: none; /* Mặc định ẩn trên điện thoại/màn hình nhỏ */
+}
+
+.side-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.side-banner img:hover {
+    transform: scale(1.02);
+}
+
+.side-banner-left {
+    left: 2rem;
+}
+
+.side-banner-right {
+    right: 2rem;
+}
+
+/* CHỈ HIỂN THỊ POSTER DỌC TRÊN MÀN HÌNH RẤT LỚN (để không đè lên nội dung giữa) */
+@media (min-width: 1450px) {
+    .side-banner {
+        display: block;
+    }
+}
+
+/* Responsive cho Poster Ngang trên điện thoại */
+@media (max-width: 768px) {
+    .top-ad-swiper {
+        height: 150px; /* Thu nhỏ poster ngang trên điện thoại */
+    }
+}
+
+/* --- Tùy chỉnh icon trái tim ở Header --- */
+.header .icons .wishlist-icon-btn i {
+    font-size: 3.5rem !important; /* Kích thước icon */
+    color: #E950B8 !important;    /* Đổi sang màu hồng */
+}
+
+/* Nới rộng khung viền của nút bấm để icon không bị lẹm */
+.header .icons .wishlist-icon-btn {
+    width: 5.5rem;
+    height: 5.5rem;
+}

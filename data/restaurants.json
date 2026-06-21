@@ -1,0 +1,947 @@
+﻿{
+    "restaurants":  [
+                        {
+                            "id":  1,
+                            "name":  "Bún Bò Vỹ Dạ Xưa",
+                            "category":  "Bún Bò",
+                            "district":  "Quận 7",
+                            "address":  "2 Lê Văn Thiêm, Tân Phong, Quận 7, TPHCM",
+                            "phone":  "0901234567",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/o2MStpSjT63DNFPFA",
+                            "openTime":  "6:00",
+                            "closeTime":  "21:00",
+                            "priceRange":  "30K",
+                            "rating":  4.5,
+                            "reviewCount":  42,
+                            "description":  "Bún bò Huế Vỹ Dạ nổi tiếng với nước dùng đậm đà, thịt bò mềm và bánh bún tươi ngon. Quán đã có mặt tại Sài Gòn hơn 20 năm và được nhiều người yêu thích.",
+                            "image":  "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda.jpg",
+                                           "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda-2.jpg",
+                                           "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda-3.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Bún bò",
+                                             "image":  "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda.jpg"
+                                         },
+                                         {
+                                             "name":  "Bún gà",
+                                             "image":  "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda.jpg"
+                                         },
+                                         {
+                                             "name":  "Bún tái",
+                                             "image":  "images/restaurants/Q7/restaurant/Bun_bo_vy_da/bunbovyda.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@diadiemanuong/video/7446715893758938376?q=b%C3%BAn%20b%C3%B2%20v%E1%BB%B9%20d%E1%BA%A1%20x%C6%B0a%20qu%E1%BA%ADn%207\u0026t=1774691219904"
+                                             ],
+                            "tags":  [
+                                         "bún bò",
+                                         "beef",
+                                         "local",
+                                         "breakfast"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  2,
+                            "name":  "Meili 美丽 - Mì Bò Đài Loan",
+                            "category":  "Mì Bò",
+                            "district":  "Quận 7",
+                            "address":  "2B Mai Vân Vĩnh, P. Tân Quy, Quận 7, TPHCM",
+                            "phone":  "0912345678",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/grTtPYCmozHSwXei6",
+                            "openTime":  "7:00",
+                            "closeTime":  "20:00",
+                            "priceRange":  "50K",
+                            "rating":  4.8,
+                            "reviewCount":  156,
+                            "description":  "Mì bò Đài Loan ngon, được làm từ nguyên liệu tươi ngon và cách chế biến đặc biệt.",
+                            "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Meili/mi-bo-1.jpg",
+                                           "images/restaurants/Q7/restaurant/Meili/mi-bo-2.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Mì bò",
+                                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg"
+                                         },
+                                         {
+                                             "name":  "Mì gà",
+                                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg"
+                                         },
+                                         {
+                                             "name":  "Mì tái",
+                                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@meilimibodailoan/photo/7598126417053879570?q=meili\u0026t=1774691150095"
+                                             ],
+                            "tags":  [
+                                         "mì bò",
+                                         "Taiwanese",
+                                         "lunch"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  3,
+                            "name":  "Bún Chả Hà Nội Xưa",
+                            "category":  "Bún Chả",
+                            "district":  "Quận 7",
+                            "address":  "144 Đường số 79, Tân Quy, Quận 7, TPHCM",
+                            "phone":  "0923456789",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/JoyJ8c65hHcHr9px5",
+                            "openTime":  "10:30",
+                            "closeTime":  "21:00",
+                            "priceRange":  "$$",
+                            "rating":  4.3,
+                            "reviewCount":  89,
+                            "description":  "Bún chả Hà Nội Xưa nổi tiếng với hương vị truyền thống, được nhiều người yêu thích.",
+                            "image":  "images/restaurants/Q7/restaurant/Bun_cha_HN_Xua/bunchahanoixua.png",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Bun_cha_HN_Xua/bunchahanoixua-1.png",
+                                           "images/restaurants/Q7/restaurant/Bun_cha_HN_Xua/bunchahanoixua-2.png"
+                                       ],
+                            "menu":  [
+
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@hetmydiscovery/video/7591086560741690645?q=b%C3%BAn%20ch%E1%BA%A3%20h%C3%A0%20n%E1%BB%99i%20x%C6%B0a%20qu%E1%BA%ADn%207\u0026t=1774693647950"
+                                             ],
+                            "tags":  [
+                                         "Bún Chả",
+                                         "rice",
+                                         "lunch"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  4,
+                            "name":  "Doya Jjambbong",
+                            "category":  "Đồ Hàn Quốc",
+                            "district":  "Quận 7",
+                            "address":  "14 Đ.Nội Khu Sky Garden 3, Quận 7, TPHCM",
+                            "phone":  "0934567890",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/yXGtHe5h4Yk9VRDG6",
+                            "openTime":  "5:30",
+                            "closeTime":  "21:00",
+                            "priceRange":  "$",
+                            "rating":  4.6,
+                            "reviewCount":  203,
+                            "description":  "Doya Jjambbong nổi tiếng với hương vị Hàn Quốc đặc trưng, được nhiều người yêu thích.",
+                            "image":  "images/restaurants/Q7/restaurant/Doya_Jjambbong/doya.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Doya_Jjambbong/doya.jpg",
+                                           "images/restaurants/Q7/restaurant/Doya_Jjambbong/doya.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Jjambbong",
+                                             "image":  "images/restaurants/Q7/restaurant/Doya_Jjambbong/doya.jpg"
+                                         },
+                                         {
+                                             "name":  "Budae Jjigae",
+                                             "image":  "images/restaurants/Q7/restaurant/Doya_Jjambbong/doya.jpg"
+                                         },
+                                         {
+                                             "name":  "Kimchi Jjigae",
+                                             "image":  "images/restaurants/Q7/restaurant/Doya_Jjambbong/doya.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@kayzvivuworld/video/7618574447599013128?q=jjambbong%20qu%E1%BA%ADn%207\u0026t=1774691855255"
+                                             ],
+                            "tags":  [
+                                         "Hàn Quốc",
+                                         "Korean",
+                                         "dinner"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  5,
+                            "name":  "Woo... Ramen",
+                            "category":  [
+                                             "Ramen",
+                                             "Đồ Nhật Bản",
+                                             "Đồ Hàn Quốc"
+                                         ],
+                            "district":  "Quận 7",
+                            "address":  "541 Lê Văn Lương, Tân Phong, Quận 7, TPHCM",
+                            "phone":  "0945678901",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/AJFyZZtirawX6fZA7",
+                            "openTime":  "11:00",
+                            "closeTime":  "23:00",
+                            "priceRange":  "$$",
+                            "rating":  4.7,
+                            "reviewCount":  178,
+                            "description":  "Ramen ngon với nước dùng đậm đà và mì tươi, được nhiều khách yêu thích.",
+                            "image":  "images/restaurants/Q7/restaurant/Woo_ramen/wooramen.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Woo_ramen/wooramen.jpg",
+                                           "images/restaurants/Q7/restaurant/Woo_ramen/wooramen.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Ramen Tonkotsu",
+                                             "image":  "images/restaurants/Q7/restaurant/Woo_ramen/wooramen.jpg"
+                                         },
+                                         {
+                                             "name":  "Ramen Shoyu",
+                                             "image":  "images/restaurants/Q7/restaurant/Woo_ramen/wooramen.jpg"
+                                         },
+                                         {
+                                             "name":  "Ramen Miso",
+                                             "image":  "images/restaurants/Q7/restaurant/Woo_ramen/wooramen.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@vyvivuuu/video/7590749136656370952?q=woo%20ramen%20qu%E1%BA%ADn%207\u0026t=1774692304090"
+                                             ],
+                            "tags":  [
+                                         "ramen",
+                                         "Japanese",
+                                         "dinner"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  6,
+                            "name":  "Mì Quảng Cô Vân",
+                            "category":  "Mì Quảng",
+                            "district":  "Quận 7",
+                            "address":  "2 Đường số 37, Tân Phong, Quận 7, TPHCM",
+                            "phone":  "0956789012",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/6GFyw8A1moRuSmBu9",
+                            "openTime":  "7:00",
+                            "closeTime":  "21:00",
+                            "priceRange":  "$$",
+                            "rating":  4.4,
+                            "reviewCount":  112,
+                            "description":  "Mì Quảng chuẩn vị, nước dùng nấu từ sườn và tượng.",
+                            "image":  "images/restaurants/Q7/restaurant/Mi_quang_co_van/miquancovan.png",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Mi_quang_co_van/miquancovan.png",
+                                           "images/restaurants/Q7/restaurant/Mi_quang_co_van/miquancovan.png"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Mì Quảng",
+                                             "image":  "images/restaurants/Q7/restaurant/Mi_quang_co_van/miquancovan.png"
+                                         },
+                                         {
+                                             "name":  "Bánh khoái",
+                                             "image":  "images/restaurants/Q7/restaurant/Mi_quang_co_van/miquancovan.png"
+                                         },
+                                         {
+                                             "name":  "Chả cua",
+                                             "image":  "images/restaurants/Q7/restaurant/Mi_quang_co_van/miquancovan.png"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@thanhriviuofficial/video/7491997147487948040?q=m%C3%AC%20qu%E1%BA%A3ng%20c%E1%BB%91%20v%C3%A2n%20qu%E1%BA%ADn%207\u0026t=1774692632121"
+                                             ],
+                            "tags":  [
+                                         "Mì Quảng",
+                                         "Quang noodles",
+                                         "lunch"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  7,
+                            "name":  "The 70M pasta\u0026steak",
+                            "category":  "Đồ Tây",
+                            "district":  "Quận 7",
+                            "address":  "Nhà Novotel, 2 Đường C - Bắc, Tân Phú, Quận 7",
+                            "phone":  "0967890123",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/TPz9HTwLx7FubxpW8",
+                            "openTime":  "11:00",
+                            "closeTime":  "22:00",
+                            "priceRange":  "$$$",
+                            "rating":  4.9,
+                            "reviewCount":  267,
+                            "description":  "Đồ Tây chất lượng cao, không gian sang trọng.",
+                            "image":  "images/restaurants/Q7/restaurant/The70/the70.png",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/The70/the70.png",
+                                           "images/restaurants/Q7/restaurant/The70/the70.png",
+                                           "images/restaurants/Q7/restaurant/The70/the70.png"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Pasta",
+                                             "image":  "images/restaurants/Q7/restaurant/The70/the70.png"
+                                         },
+                                         {
+                                             "name":  "Steak",
+                                             "image":  "images/restaurants/Q7/restaurant/The70/the70.png"
+                                         },
+                                         {
+                                             "name":  "Salad",
+                                             "image":  "images/restaurants/Q7/restaurant/The70/the70.png"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@saigonquickbites/video/7359051344663121168?q=the%2070m%20pasta%20steak\u0026t=1774692912290"
+                                             ],
+                            "tags":  [
+                                         "Đồ Tây",
+                                         "Western",
+                                         "fine dining"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  8,
+                            "name":  "Lẩu bò Triều châu Wang He Niu",
+                            "category":  "Lẩu",
+                            "district":  "Quận 7",
+                            "address":  "Đ P/4 - 1B Khu phố Mỹ Cảnh, Tân Phong, Quận 7, TPHCM",
+                            "phone":  "0978901234",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/GAYLAs8cbxFnPsjF6",
+                            "openTime":  "14:00",
+                            "closeTime":  "23:30",
+                            "priceRange":  "$",
+                            "rating":  4.5,
+                            "reviewCount":  145,
+                            "description":  "Lẩu bò Triều Châu nổi tiếng với hương vị đậm đà và nước dùng thơm ngon.",
+                            "image":  "images/restaurants/Q7/restaurant/Wangheniu/wangheniu.png",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Wangheniu/wangheniu.png",
+                                           "images/restaurants/Q7/restaurant/Wangheniu/wangheniu.png"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Lẩu bò",
+                                             "image":  "images/restaurants/Q7/restaurant/Wangheniu/wangheniu.png"
+                                         },
+                                         {
+                                             "name":  "Chân gà chiên",
+                                             "image":  "images/restaurants/Q7/restaurant/Wangheniu/wangheniu.png"
+                                         },
+                                         {
+                                             "name":  "Nọc gà",
+                                             "image":  "images/restaurants/Q7/restaurant/Wangheniu/wangheniu.png"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@sayhihuy/video/7601826980148825364?q=l%E1%BA%A9u%20b%C3%B2%20tri%E1%BB%81u%20ch%C3%A2u%20wang%20he%20niu\u0026t=1774693126613"
+                                             ],
+                            "tags":  [
+                                         "lẩu",
+                                         "hotpot",
+                                         "dinner"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  9,
+                            "name":  "Bánh mì chảo Khôi Nguyên",
+                            "category":  "Bánh Mì",
+                            "district":  "Quận 7",
+                            "address":  "102 Đường số 39, Tân Quy, Quận 7, TPHCM",
+                            "phone":  "0989012345",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/MyHM7VFJbpCbxdxz6",
+                            "openTime":  "10:00",
+                            "closeTime":  "20:00",
+                            "priceRange":  "$",
+                            "rating":  4.2,
+                            "reviewCount":  98,
+                            "description":  "Bánh mì chảo Khôi Nguyên nổi tiếng với hương vị đậm đà và nguyên liệu tươi ngon.",
+                            "image":  "images/restaurants/Q7/restaurant/Banh_mi_chao_KN/banhmichaoKN.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Banh_mi_chao_KN/banhmichaoKN.jpg",
+                                           "images/restaurants/Q7/restaurant/Banh_mi_chao_KN/banhmichaoKN.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Bánh mì chảo",
+                                             "image":  "images/restaurants/Q7/restaurant/Banh_mi_chao_KN/banhmichaoKN.jpg"
+                                         },
+                                         {
+                                             "name":  "Bánh mì ốp la",
+                                             "image":  "images/restaurants/Q7/restaurant/Banh_mi_chao_KN/banhmichaoKN.jpg"
+                                         },
+                                         {
+                                             "name":  "Bánh mì pate",
+                                             "image":  "images/restaurants/Q7/restaurant/Banh_mi_chao_KN/banhmichaoKN.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@lunmango/video/7568357743153696008?lang=en\u0026q=b%C3%A1nh%20m%C3%AC%20ch%E1%BA%A3o%20kh%C3%B4i%20nguy%C3%AAn%20qu%E1%BA%ADn%207\u0026t=1774694341950"
+                                             ],
+                            "tags":  [
+                                         "bánh mì",
+                                         "bread",
+                                         "homemade"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  10,
+                            "name":  "Bún Chả A Đức",
+                            "category":  "Bún Chả",
+                            "district":  "Quận 7",
+                            "address":  "662 Lê Văn Lương, Tân Phong, Quận 7, TPHCM",
+                            "phone":  "0889246891",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/HaD8rjYWvnrDNo4R6",
+                            "openTime":  "11:00",
+                            "closeTime":  "22:00",
+                            "priceRange":  "45K",
+                            "rating":  4.6,
+                            "reviewCount":  189,
+                            "description":  "Bún chả đặc sản Hà Nội, hương vị truyền thống.",
+                            "image":  "images/restaurants/Q7/restaurant/Bun_Cha_A_Duc/bunchaaduc.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Bun_Cha_A_Duc/bunchaaduc-1.jpg",
+                                           "images/restaurants/Q7/restaurant/Bun_Cha_A_Duc/bunchaaduc-2.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Menu Bún Chả A Đức",
+                                             "image":  "images/restaurants/Q7/restaurant/Bun_Cha_A_Duc/BunchaAduc_menu.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@vochongthaokhanh/video/7600720151356476680"
+                                             ],
+                            "tags":  [
+                                         "bún chả",
+                                         "Hà Nội",
+                                         "Bún Chả"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  11,
+                            "name":  "Bánh Canh Cua Hương Trinh",
+                            "category":  "Bánh canh",
+                            "district":  "Quận 7",
+                            "address":  "40 Đường Số 12, Tân Hưng, Hồ Chí Minh",
+                            "phone":  "0937292119",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/KJrPUWK1oigH9N6a9",
+                            "openTime":  "6:00",
+                            "closeTime":  "10:00",
+                            "priceRange":  "55K",
+                            "rating":  4.8,
+                            "reviewCount":  234,
+                            "description":  "Bánh canh cua ngon, hương vị đậm đà.",
+                            "image":  "images/restaurants/Q7/restaurant/Banh_canh_cua_Huong_Trinh/0.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Banh_canh_cua_Huong_Trinh/1.jpg",
+                                           "images/restaurants/Q7/restaurant/Banh_canh_cua_Huong_Trinh/2.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Bánh canh cua Hương Trinh",
+                                             "image":  "images/restaurants/Q7/restaurant/Banh_canh_cua_Huong_Trinh/menu.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@thon_foodie/video/7424500584025181460?q=B%C3%A1nh%20canh%20cua%20h%C6%B0%C6%A1ng%20trinh%20qu%E1%BA%ADn%207\u0026t=1781974869440"
+                                             ],
+                            "tags":  [
+                                         "Bánh canh",
+                                         "Bánh canh cua"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  12,
+                            "name":  "Hủ tiếu Sa Đéc cô Mai",
+                            "category":  "Hủ Tiếu",
+                            "district":  "Quận 7",
+                            "address":  "419 Lê Văn Lương, Tân Hưng, Quận 7, TPHCM",
+                            "phone":  "Not phone number",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/x5SB6MwKMTgoU9Tm9",
+                            "openTime":  "24/24",
+                            "closeTime":  "",
+                            "priceRange":  "$",
+                            "rating":  4.3,
+                            "reviewCount":  76,
+                            "description":  "Hủ tiếu Sa Đéc cố Mai nổi tiếng với hương vị đậm đà và nước dùng thơm ngon.",
+                            "image":  "images/restaurants/Q7/restaurant/Hu_tieu_sa_dec_co_mai/0.jpg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Hu_tieu_sa_dec_co_mai/2.jpg",
+                                           "images/restaurants/Q7/restaurant/Hu_tieu_sa_dec_co_mai/0.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Menu Hủ tiếu Sa Đéc cô Mai",
+                                             "image":  "images/restaurants/Q7/restaurant/Hu_tieu_sa_dec_co_mai/1.jpg"
+                                         }
+                                       
+                                     ],
+                            "tiktokVideos":  [
+                                                    "https://www.tiktok.com/@ansapsaigon/video/7615509052671413512?q=h%E1%BB%A7%20ti%E1%BA%BFu%20sa%20%C4%91%C3%A9c%20qu%E1%BA%ADn%207&t=1781976951508"
+                                             ],
+                            "tags":  [
+                                         "hủ tiếu",
+                                         "Hủ tiếu Sa Đéc",
+                                         "Hủ tiếu"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  13,
+                            "name":  "Bánh bèo - Bánh lọc Cô Tư Phú Yên",
+                            "category":  "Bánh bèo",
+                            "district":  "Quận 7",
+                            "address":  "51 Đ. 14A, P. Phú Thuận, Tân Thuận, Quận 7, TPHCM",
+                            "phone":  "0815449499",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/jgjDQDKDtCK8wYzZA",
+                            "openTime":  "11:30",
+                            "closeTime":  "23:00",
+                            "priceRange":  "$$",
+                            "rating":  4.7,
+                            "reviewCount":  142,
+                            "description":  "Bánh bèo và bánh lọc Phú Yên ngon tuyệt vời, nguyên liệu tươi mới.",
+                            "image":  "images/restaurants/Q7/restaurant/Banh-beo-co-tu/0.jpeg",
+                            "images":  [
+                                           "images/restaurants/Q7/restaurant/Banh-beo-co-tu/1.jpeg",
+                                           "images/restaurants/Q7/restaurant/Banh-beo-co-tu/2.jpeg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Bánh bèo",
+                                             "image":  "images/restaurants/Q7/restaurant/Banh-beo-co-tu/menu.jpeg"
+                                         }
+                                         
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@sayhihuy/video/7624833461982956821",
+                                                 "https://www.tiktok.com/@tuannguyen449499"
+                                             ],
+                            "tags":  [
+                                         "Bánh bèo",
+                                         "Bánh lọc",
+                                         "Phú Yên"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  14,
+                            "name":  "Mứt Chả Mực",
+                            "category":  "Hải Sản",
+                            "district":  "Q5",
+                            "address":  "888 Lý Tự Trọng, Q5, TPHCM",
+                            "phone":  "0934567800",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "10:30",
+                            "closeTime":  "21:30",
+                            "priceRange":  "$$",
+                            "rating":  4.5,
+                            "reviewCount":  167,
+                            "description":  "Chả mực và các món hải sản tươi mới hàng ngày.",
+                            "image":  "images/restaurants/cha-muc.jpg",
+                            "images":  [
+                                           "images/restaurants/cha-muc-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Chả mực nướng",
+                                             "image":  "images/restaurants/cha-muc.jpg"
+                                         },
+                                         {
+                                             "name":  "Mực xào dây",
+                                             "image":  "images/restaurants/cha-muc.jpg"
+                                         },
+                                         {
+                                             "name":  "Tôm chiên",
+                                             "image":  "images/restaurants/cha-muc.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+
+                                             ],
+                            "tags":  [
+                                         "hải sản",
+                                         "seafood",
+                                         "lunch"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  15,
+                            "name":  "Doner Kebab Vàng",
+                            "category":  "Doner",
+                            "district":  "Q1",
+                            "address":  "999 Trần Hưng Đạo, Q1, TPHCM",
+                            "phone":  "0945678900",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "10:00",
+                            "closeTime":  "22:00",
+                            "priceRange":  "$$",
+                            "rating":  4.4,
+                            "reviewCount":  89,
+                            "description":  "Doner kebab Thổ Nhĩ Kỳ, thịt cắt tươi mỗi ngày.",
+                            "image":  "images/restaurants/doner.jpg",
+                            "images":  [
+                                           "images/restaurants/doner-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Doner Kebab Gà",
+                                             "image":  "images/restaurants/doner.jpg"
+                                         },
+                                         {
+                                             "name":  "Doner Kebab Bò",
+                                             "image":  "images/restaurants/doner.jpg"
+                                         },
+                                         {
+                                             "name":  "Shawarma",
+                                             "image":  "images/restaurants/doner.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+
+                                             ],
+                            "tags":  [
+                                         "doner",
+                                         "Turkish",
+                                         "street food"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  16,
+                            "name":  "Bánh Canh Cua",
+                            "category":  "Bánh Canh",
+                            "district":  "Q6",
+                            "address":  "1010 Đặng Văn Ngữ, Q6, TPHCM",
+                            "phone":  "0956789000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "7:00",
+                            "closeTime":  "20:00",
+                            "priceRange":  "$",
+                            "rating":  4.6,
+                            "reviewCount":  143,
+                            "description":  "Bánh canh cua truyền thống, nước dùng đặc biệt.",
+                            "image":  "images/restaurants/banh-canh.jpg",
+                            "images":  [
+                                           "images/restaurants/banh-canh-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Bánh canh cua",
+                                             "image":  "images/restaurants/banh-canh.jpg"
+                                         },
+                                         {
+                                             "name":  "Bánh canh thịt chua",
+                                             "image":  "images/restaurants/banh-canh.jpg"
+                                         },
+                                         {
+                                             "name":  "Bánh canh huyết",
+                                             "image":  "images/restaurants/banh-canh.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+
+                                             ],
+                            "tags":  [
+                                         "bánh canh",
+                                         "noodles",
+                                         "breakfast"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  17,
+                            "name":  "Chân Gà Nướng Sả Ớt",
+                            "category":  "Chân Gà",
+                            "district":  "Q8",
+                            "address":  "1111 Trương Văn Huyên, Q8, TPHCM",
+                            "phone":  "0967890000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "15:00",
+                            "closeTime":  "23:00",
+                            "priceRange":  "$",
+                            "rating":  4.5,
+                            "reviewCount":  134,
+                            "description":  "Chân gà nướng sả ớt nổi tiếng, giá rẻ mà ngon.",
+                            "image":  "images/restaurants/chan-ga.jpg",
+                            "images":  [
+                                           "images/restaurants/chan-ga-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Chân gà nướng sả ớt",
+                                             "image":  "images/restaurants/chan-ga.jpg"
+                                         },
+                                         {
+                                             "name":  "Chân gà luộc",
+                                             "image":  "images/restaurants/chan-ga.jpg"
+                                         },
+                                         {
+                                             "name":  "Chân gà roti",
+                                             "image":  "images/restaurants/chan-ga.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/embed/v2/7600000000"
+                                             ],
+                            "tags":  [
+                                         "chân gà",
+                                         "grilled",
+                                         "dinner"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  18,
+                            "name":  "Quán Nước Chè Thiên Lý",
+                            "category":  "Chè",
+                            "district":  "Q10",
+                            "address":  "1212 Cách Mạng Tháng 8, Q10, TPHCM",
+                            "phone":  "0978900000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "8:00",
+                            "closeTime":  "22:00",
+                            "priceRange":  "$",
+                            "rating":  4.7,
+                            "reviewCount":  198,
+                            "description":  "Chè liễu, chè ba màu, chè đen hữu cơ - tất cả đều ngon.",
+                            "image":  "images/restaurants/che.jpg",
+                            "images":  [
+                                           "images/restaurants/che-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Chè ba màu",
+                                             "image":  "images/restaurants/che.jpg"
+                                         },
+                                         {
+                                             "name":  "Chè liễu",
+                                             "image":  "images/restaurants/che.jpg"
+                                         },
+                                         {
+                                             "name":  "Chè đen hữu cơ",
+                                             "image":  "images/restaurants/che.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+
+                                             ],
+                            "tags":  [
+                                         "chè",
+                                         "dessert",
+                                         "afternoon"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  19,
+                            "name":  "Bò Nướng Lẩu LK",
+                            "category":  "Bò Nướng",
+                            "district":  "Q7",
+                            "address":  "1313 Thao Dien, Q7, TPHCM",
+                            "phone":  "0989000000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "16:00",
+                            "closeTime":  "23:30",
+                            "priceRange":  "$$$",
+                            "rating":  4.8,
+                            "reviewCount":  267,
+                            "description":  "Bò Hàn Quốc nướng lẩu, lẩu bò ngon tuyệt vời.",
+                            "image":  "images/restaurants/bo-nuong.jpg",
+                            "images":  [
+                                           "images/restaurants/bo-nuong-1.jpg",
+                                           "images/restaurants/bo-nuong-2.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Bò Wagyu",
+                                             "image":  "images/restaurants/bo-nuong.jpg"
+                                         },
+                                         {
+                                             "name":  "Bò Hàn Quốc",
+                                             "image":  "images/restaurants/bo-nuong.jpg"
+                                         },
+                                         {
+                                             "name":  "Lẩu Bò",
+                                             "image":  "images/restaurants/bo-nuong.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/embed/v2/7700000000"
+                                             ],
+                            "tags":  [
+                                         "bò nướng",
+                                         "Korean BBQ",
+                                         "dinner"
+                                     ],
+                            "posterImage":  "images/restaurants/bo-nuong.jpg"
+                        },
+                        {
+                            "id":  20,
+                            "name":  "Cơm Chiên Tỏi",
+                            "category":  "Cơm Chiên",
+                            "district":  "Q11",
+                            "address":  "1414 An Dương Vương, Q11, TPHCM",
+                            "phone":  "0990000000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "10:00",
+                            "closeTime":  "20:30",
+                            "priceRange":  "$",
+                            "rating":  4.4,
+                            "reviewCount":  112,
+                            "description":  "Cơm chiên tỏi ớt, được phục vụ với trứng ốp la.",
+                            "image":  "images/restaurants/com-chien.jpg",
+                            "images":  [
+                                           "images/restaurants/com-chien-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Cơm chiên tỏi ớt",
+                                             "image":  "images/restaurants/com-chien.jpg"
+                                         },
+                                         {
+                                             "name":  "Cơm chiên cà rốt",
+                                             "image":  "images/restaurants/com-chien.jpg"
+                                         },
+                                         {
+                                             "name":  "Cơm chiên dương chamsoy",
+                                             "image":  "images/restaurants/com-chien.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+
+                                             ],
+                            "tags":  [
+                                         "cơm chiên",
+                                         "fried rice",
+                                         "lunch"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  21,
+                            "name":  "Bamos Coffee Bình Thạnh",
+                            "category":  "Cà Phê",
+                            "district":  "Bình Thạnh",
+                            "address":  "69 Ngô Tất Tố, Thạnh Mỹ Tây, Bình Thạnh, TPHCM",
+                            "phone":  "0990000000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/kzJsZdgjrDcqnqNL7",
+                            "openTime":  "10:00",
+                            "closeTime":  "20:30",
+                            "priceRange":  "$",
+                            "rating":  4.4,
+                            "reviewCount":  112,
+                            "description":  "Cà phê ngon, không gian thoải mái.",
+                            "image":  "images/restaurants/Binh_Thanh/cafe/Bamos/bamos-coffee-bthanh.png",
+                            "images":  [
+                                           "images/restaurants/Binh_Thanh/cafe/Bamos/bamos-coffee-bthanh-1.jpg",
+                                           "images/restaurants/Binh_Thanh/cafe/Bamos/bamos-coffee-bthanh-2.jpg",
+                                           "images/restaurants/Binh_Thanh/cafe/Bamos/bamos-coffee-bthanh-3.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Menu Bamos Coffee",
+                                             "image":  "images/restaurants/Binh_Thanh/cafe/Bamos/bamos-coffee-bthanh-menu.png"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+                                                 "https://www.tiktok.com/@anhthoxaycaphe/video/7621424003227323655?q=bamos%20b%C3%ACnh%20th%E1%BA%A1nh\u0026t=1781807219272"
+                                             ],
+                            "tags":  [
+                                         "cà phê",
+                                         "coffee",
+                                         "drink"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        },
+                        {
+                            "id":  22,
+                            "name":  "Đức",
+                            "category":  "Cơm Chiên",
+                            "district":  "Q11",
+                            "address":  "1414 An Dương Vương, Q11, TPHCM",
+                            "phone":  "0990000000",
+                            "googleMapsUrl":  "https://maps.app.goo.gl/your-link-here",
+                            "openTime":  "10:00",
+                            "closeTime":  "20:30",
+                            "priceRange":  "$",
+                            "rating":  4.4,
+                            "reviewCount":  112,
+                            "description":  "Cơm chiên tỏi ớt, được phục vụ với trứng ốp la.",
+                            "image":  "images/restaurants/com-chien.jpg",
+                            "images":  [
+                                           "images/restaurants/com-chien-1.jpg"
+                                       ],
+                            "menu":  [
+                                         {
+                                             "name":  "Cơm chiên tỏi ớt",
+                                             "image":  "images/restaurants/com-chien.jpg"
+                                         },
+                                         {
+                                             "name":  "Cơm chiên cà rốt",
+                                             "image":  "images/restaurants/com-chien.jpg"
+                                         },
+                                         {
+                                             "name":  "Cơm chiên dương chamsoy",
+                                             "image":  "images/restaurants/com-chien.jpg"
+                                         }
+                                     ],
+                            "tiktokVideos":  [
+
+                                             ],
+                            "tags":  [
+                                         "cơm chiên",
+                                         "fried rice",
+                                         "lunch"
+                                     ],
+                            "posterImage":  "images/banners/mnimjeel_bgr.png"
+                        }
+                    ],
+    "categories":  [
+                       "Phở",
+                       "Bánh Mì",
+                       "Cơm",
+                       "Hủ Tiếu",
+                       "Gà Nướng",
+                       "Bún Bò",
+                       "Sushi",
+                       "Ăn Vặt",
+                       "Lẩu",
+                       "Xôi",
+                       "Pizza",
+                       "Hải Sản",
+                       "Doner",
+                       "Bánh Canh",
+                       "Chân Gà",
+                       "Bò Nướng",
+                       "Cơm Chiên",
+                       "Buffet"
+                   ],
+    "drinkCategories":  [
+                            "Cà Phê",
+                            "Chè"
+                        ],
+    "districts":  [
+                      "Quận 1",
+                      "Quận 2",
+                      "Quận 3",
+                      "Quận 4",
+                      "Quận 5",
+                      "Quận 6",
+                      "Quận 7",
+                      "Quận 8",
+                      "Quận 9",
+                      "Quận 10",
+                      "Quận 11",
+                      "Quận 12",
+                      "Tân Bình",
+                      "Tân Phú",
+                      "Phú Nhuận",
+                      "Gò Vấp",
+                      "Bình Tân",
+                      "Bình Chánh",
+                      "Thủ Đức"
+                  ]
+}

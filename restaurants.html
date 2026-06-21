@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="title" content="MNIMJEEL">
+    <meta name="description" content="Tìm kiếm quán ăn ở TPHCM. Lọc theo loại ăn, quận huyện, giá cả, và đánh giá.">
+    <meta name="keywords" content="quán ăn TPHCM, tìm quán ăn, nhà hàng">
+
+    <title>MNIMJEEL - HCMC</title>
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+
+</head>
+<body>
+    <div id="top"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!-- Row 1: Brand bar -->
+        <div class="header-top">
+            <a href="restaurants.html" class="logo">
+                <i class="fas fa-house"></i> <span style="color: #ADD8E6;">MNIM</span><span style="color: #E950B8;">JEEL</span>
+            </a>
+            <div class="icons">
+                <button class="wishlist-icon-btn" id="wishlist-icon-btn" onclick="toggleWishlistDrawer()" title="Góc Yêu Thích">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-badge" id="wishlist-badge" style="display:none;">0</span>
+                </button>
+                <div id="menu-btn" class="fas fa-bars"></div>
+            </div>
+        </div>
+
+        <!-- Row 2: Mega Filter (always visible) -->
+        <div class="header-filter-row mega-filter" id="mega-filter">
+            <div class="mega-filter-bar">
+                <div class="mega-filter-search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="filter-search" placeholder="Tìm kiếm quán ăn...">
+                </div>
+
+                <button class="mega-filter-tab" id="tab-categories" data-panel="panel-categories">
+                    <span class="tab-label">Loại Ăn</span>
+                    <span class="tab-count" id="count-categories"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <button class="mega-filter-tab" id="tab-districts" data-panel="panel-districts">
+                    <span class="tab-label">Quận Huyện</span>
+                    <span class="tab-count" id="count-districts"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <button class="mega-filter-tab" id="tab-drinks" data-panel="panel-drinks">
+                    <span class="tab-label">Đồ Uống</span>
+                    <span class="tab-count" id="count-drinks"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <button class="mega-filter-reset-btn" id="btn-reset-filters" onclick="resetFilters()" style="display:none;">
+                    <i class="fas fa-times"></i> Xóa bộ lọc
+                </button>
+            </div>
+
+            <!-- Categories Dropdown -->
+            <div class="mega-filter-dropdown" id="panel-categories">
+                <p class="mega-filter-dropdown-title">Chọn loại ăn</p>
+                <div class="mega-filter-chips" id="filter-categories"></div>
+                <div class="mega-filter-dropdown-footer">
+                    <button onclick="closeAllPanels()"><i class="fas fa-check"></i> Xong</button>
+                </div>
+            </div>
+
+            <!-- Districts Dropdown -->
+            <div class="mega-filter-dropdown" id="panel-districts">
+                <p class="mega-filter-dropdown-title">Chọn quận huyện</p>
+                <div class="mega-filter-chips" id="filter-districts"></div>
+                <div class="mega-filter-dropdown-footer">
+                    <button onclick="closeAllPanels()"><i class="fas fa-check"></i> Xong</button>
+                </div>
+            </div>
+
+            <!-- Drinks Dropdown -->
+            <div class="mega-filter-dropdown" id="panel-drinks">
+                <p class="mega-filter-dropdown-title">Chọn loại đồ uống</p>
+                <div class="mega-filter-chips" id="filter-drinks"></div>
+                <div class="mega-filter-dropdown-footer">
+                    <button onclick="closeAllPanels()"><i class="fas fa-check"></i> Xong</button>
+                </div>
+            </div>
+
+            <!-- Active Filter Tags -->
+            <div class="mega-filter-tags" id="active-filter-tags"></div>
+        </div>
+
+    </header>  
+
+    <!-- MAIN CONTENT -->
+    <main style="padding-top: 14rem;">
+        <div class="top-ad-banner">
+            <div class="swiper top-ad-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/banners/bgr.png" alt="Quảng cáo 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banners/bgr.png" alt="Quảng cáo 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/banners/bgr.png" alt="Quảng cáo 3">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <!-- <div class="side-banner side-banner-left">
+            <img src="https://via.placeholder.com/160x600/f5f5f5/219150?text=Poster+Trái" alt="Quảng cáo Trái">
+        </div>
+        <div class="side-banner side-banner-right">
+            <img src="https://via.placeholder.com/160x600/f5f5f5/e950b8?text=Poster+Phải" alt="Quảng cáo Phải">
+        </div> -->
+        <section style="padding: 2rem 9%;">
+
+            <h1 class="heading" style="margin-bottom: 2rem;">Danh Sách <span>Quán Ăn</span></h1>
+
+                <!-- MAIN CONTENT AREA -->
+                <div>
+
+                    <!-- Results Info & Sort -->
+                    <div class="results-info">
+                        <span class="results-count">
+                            Kết quả: <span id="results-count">0</span> quán ăn
+                        </span>
+                        <div class="results-sort">
+                            <label for="sort-by">Sắp xếp:</label>
+                            <select id="sort-by" onchange="applySorting()">
+                                <option value="rating-desc">Đánh giá cao nhất</option>
+                                <option value="rating-asc">Đánh giá thấp nhất</option>
+                                <option value="review-desc">Bình luận nhiều nhất</option>
+                                <option value="name-asc">Tên A-Z</option>
+                                <option value="name-desc">Tên Z-A</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Restaurants Container -->
+                    <div id="restaurants-container" class="grid">
+                        <!-- Loaded by JS -->
+                    </div>
+
+                    <!-- No Results Message -->
+                    <div id="no-results" class="no-results" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <h3>Không tìm thấy kết quả</h3>
+                        <p>Hãy thử thay đổi tiêu chí tìm kiếm</p>
+                        <button class="btn btn-primary" onclick="resetFilters()">
+                            Đặt Lại Bộ Lọc
+                        </button>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <!-- Loaded by JS -->
+                    </div>
+
+                </div>
+
+        </section>
+    </main>
+
+    <!-- WISHLIST OVERLAY -->
+    <div class="wishlist-overlay" id="wishlist-overlay" onclick="toggleWishlistDrawer()"></div>
+
+    <!-- WISHLIST DRAWER -->
+    <div class="wishlist-drawer" id="wishlist-drawer">
+        <div class="wishlist-drawer-header">
+            <div class="wishlist-drawer-title">
+                <i class="fas fa-heart"></i> Góc Yêu Thích
+            </div>
+            <button class="wishlist-drawer-close" onclick="toggleWishlistDrawer()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="wishlist-drawer-count" id="wishlist-drawer-count">0 quán đã lưu</div>
+        <div class="wishlist-drawer-list" id="wishlist-drawer-list">
+            <!-- Loaded by JS -->
+        </div>
+        <div class="wishlist-drawer-footer" id="wishlist-drawer-footer" style="display:none;">
+            <button class="wishlist-clear-btn" onclick="clearAllWishlist()">
+                <i class="fas fa-trash"></i> Xóa tất cả
+            </button>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about-section">
+        <div class="about-inner">
+
+            <!-- Stats -->
+            <div class="about-stats">
+                <div class="about-stat">
+                    <span class="about-stat-num">1,000+</span>
+                    <span class="about-stat-label"><i class="fas fa-store"></i> Quán Ăn</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">24</span>
+                    <span class="about-stat-label"><i class="fas fa-map-marker-alt"></i> Quận Huyện</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">50+</span>
+                    <span class="about-stat-label"><i class="fas fa-utensils"></i> Loại Món</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">5★</span>
+                    <span class="about-stat-label"><i class="fas fa-star"></i> Đánh Giá</span>
+                </div>
+            </div>
+
+            <div class="about-body">
+
+                <!-- Left: Mission + Features -->
+                <div class="about-left">
+                    <h2 class="about-heading">Về <span style="color:#ADD8E6;">MNIM</span><span style="color:#E950B8;">JEEL</span></h2>
+                    <p class="about-desc">
+                        <strong style="color:#ADD8E6;">MNIM</strong><strong style="color:#E950B8;">JEEL</strong> HCMC được thành lập với mục đích giúp bạn khám phá những quán ăn tốt nhất ở Thành phố Hồ Chí Minh. Chúng tôi tin rằng mỗi trải nghiệm ẩm thực đều đặc biệt và xứng đáng được chia sẻ.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-search"></i></div>
+                            <div>
+                                <strong>Tìm Kiếm Dễ Dàng</strong>
+                                <p>Lọc theo loại ăn, quận huyện và nhiều tiêu chí khác.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <strong>Góc Yêu Thích</strong>
+                                <p>Lưu những quán ăn yêu thích để ghé thăm sau.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Chỉ Đường Nhanh</strong>
+                                <p>Liên kết trực tiếp đến Google Maps từ trang chi tiết.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact + Social -->
+                <div class="about-right">
+                    <h3 class="about-heading" style="font-size:2rem;">Liên Hệ Chúng Tôi</h3>
+                    <form class="about-contact-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã liên hệ!');">
+                        <div class="form-group">
+                            <label>Tên của bạn</label>
+                            <input type="text" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tin Nhắn</label>
+                            <textarea placeholder="Nhập tin nhắn của bạn..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">
+                            <i class="fas fa-paper-plane"></i> Gửi Tin Nhắn
+                        </button>
+                    </form>
+                    <div class="about-social">
+                        <span>Theo dõi chúng tôi:</span>
+                        <div class="about-social-links">
+                            <a href="https://www.facebook.com/phan.minh.uc.542876/" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/dduwcs2412/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@yourprofile" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.linkedin.com/in/duc241202/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h4><span style="color: #ADD8E6;">MNIM</span><span style="color: #E950B8;">JEEL</span> HCMC</h4>
+                <p>Khám phá những quán ăn tốt nhất ở Thành phố Hồ Chí Minh.</p>
+                <p style="margin-top:0.5rem;">Email: pmd241203@gmail.com</p>
+                <p>Phone: (84+) 868 310 075</p>
+            </div>          
+        </div>
+        <div class="footer-bottom">
+            <p> <span style="color: #ADD8E6;">MNIM</span><span style="color: #E950B8;">JEEL</span> Everything here is for you                              
+                <i class="fas fa-heart" style="color: #E950B8;"></i></p>
+        </div>
+    </footer>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fab-group">
+        <a href="#top" class="to-top" id="to-top-btn">
+            Lên đầu <i class="fas fa-angle-double-up"></i>
+        </a>
+        <a href="#about-section" class="fab-contact">
+            Liên hệ <i class="fas fa-headset"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Restaurant Listing Logic -->
+    <script>
+        let restaurantsData = null;
+        let filteredRestaurants = [];
+        let currentPage = 1;
+        const ITEMS_PER_PAGE = 18; // 6 cột × 3 hàng
+
+        // Load data on page load
+        async function loadRestaurantData() {
+            try {
+                const response = await fetch('data/restaurants.json');
+                restaurantsData = await response.json();
+                initializeRestaurantListing();
+            } catch (error) {
+                console.error('Error loading restaurant data:', error);
+            }
+        }
+
+        function initializeRestaurantListing() {
+            loadFilterOptions();
+            filteredRestaurants = [...restaurantsData.restaurants];
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+            const categoryParam = urlParams.get('category');
+
+            if (searchParam) {
+                document.getElementById('filter-search').value = searchParam;
+            }
+            if (categoryParam) {
+                const chip = document.querySelector(`#filter-categories .mega-filter-chip[data-value="${categoryParam}"]`);
+                if (chip) chip.classList.add('selected');
+            }
+
+            const districtParam = urlParams.get('district');
+            if (districtParam) {
+                const chip = document.querySelector(`#filter-districts .mega-filter-chip[data-value="${districtParam}"]`);
+                if (chip) chip.classList.add('selected');
+            }
+
+            updateTabCounts();
+            updateActiveFilterTags();
+            applyFilters();
+            setupMegaFilter();
+        }
+
+        function loadFilterOptions() {
+            const categoriesContainer = document.getElementById('filter-categories');
+            categoriesContainer.innerHTML = restaurantsData.categories.map(cat => `
+                <span class="mega-filter-chip" data-value="${cat}" data-type="category" onclick="toggleChip(this)">${cat}</span>
+            `).join('');
+
+            const districtsContainer = document.getElementById('filter-districts');
+            districtsContainer.innerHTML = restaurantsData.districts.map(district => `
+                <span class="mega-filter-chip" data-value="${district}" data-type="district" onclick="toggleChip(this)">${district}</span>
+            `).join('');
+
+            const drinksContainer = document.getElementById('filter-drinks');
+            drinksContainer.innerHTML = (restaurantsData.drinkCategories || []).map(drink => `
+                <span class="mega-filter-chip" data-value="${drink}" data-type="drink" onclick="toggleChip(this)">${drink}</span>
+            `).join('');
+        }
+
+        function toggleChip(chip) {
+            chip.classList.toggle('selected');
+            updateTabCounts();
+            updateActiveFilterTags();
+            applyFilters();
+        }
+
+        function updateTabCounts() {
+            const catCount = document.querySelectorAll('#filter-categories .mega-filter-chip.selected').length;
+            const distCount = document.querySelectorAll('#filter-districts .mega-filter-chip.selected').length;
+            const drinkCount = document.querySelectorAll('#filter-drinks .mega-filter-chip.selected').length;
+
+            const countCat = document.getElementById('count-categories');
+            const countDist = document.getElementById('count-districts');
+            const countDrink = document.getElementById('count-drinks');
+            countCat.textContent = catCount || '';
+            countDist.textContent = distCount || '';
+            if (countDrink) countDrink.textContent = drinkCount || '';
+
+            document.getElementById('tab-categories').classList.toggle('has-selection', catCount > 0);
+            document.getElementById('tab-districts').classList.toggle('has-selection', distCount > 0);
+            const tabDrinks = document.getElementById('tab-drinks');
+            if (tabDrinks) tabDrinks.classList.toggle('has-selection', drinkCount > 0);
+        }
+
+        function updateActiveFilterTags() {
+            const tagsContainer = document.getElementById('active-filter-tags');
+            const resetBtn = document.getElementById('btn-reset-filters');
+            const selectedChips = Array.from(document.querySelectorAll('.mega-filter-chip.selected'));
+            const searchTerm = document.getElementById('filter-search').value.trim();
+
+            const hasFilters = selectedChips.length > 0 || searchTerm;
+            resetBtn.style.display = hasFilters ? 'flex' : 'none';
+
+            if (!hasFilters) {
+                tagsContainer.innerHTML = '';
+                tagsContainer.style.display = 'none';
+                return;
+            }
+
+            tagsContainer.style.display = 'flex';
+            let html = '<span class="mega-filter-tags-label">Đang lọc:</span>';
+
+            if (searchTerm) {
+                html += `<span class="mega-filter-tag"><i class="fas fa-search"></i>&nbsp;"${searchTerm}"<button onclick="clearSearch()"><i class="fas fa-times"></i></button></span>`;
+            }
+
+            selectedChips.forEach(chip => {
+                const val = chip.dataset.value;
+                const type = chip.dataset.type;
+                html += `<span class="mega-filter-tag">${val}<button onclick="removeChipFilter('${val}','${type}')"><i class="fas fa-times"></i></button></span>`;
+            });
+
+            tagsContainer.innerHTML = html;
+        }
+
+        function removeChipFilter(value, type) {
+            const container = type === 'category' ? '#filter-categories' : type === 'drink' ? '#filter-drinks' : '#filter-districts';
+            const chip = document.querySelector(`${container} .mega-filter-chip[data-value="${value}"]`);
+            if (chip) chip.classList.remove('selected');
+            updateTabCounts();
+            updateActiveFilterTags();
+            applyFilters();
+        }
+
+        function clearSearch() {
+            document.getElementById('filter-search').value = '';
+            updateActiveFilterTags();
+            applyFilters();
+        }
+
+        function closeAllPanels() {
+            document.querySelectorAll('.mega-filter-dropdown.open').forEach(p => p.classList.remove('open'));
+            document.querySelectorAll('.mega-filter-tab.active').forEach(t => t.classList.remove('active'));
+        }
+
+        function setupMegaFilter() {
+            document.querySelectorAll('.mega-filter-tab').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const panelId = tab.dataset.panel;
+                    const panel = document.getElementById(panelId);
+                    const isOpen = panel.classList.contains('open');
+                    closeAllPanels();
+                    if (!isOpen) {
+                        panel.classList.add('open');
+                        tab.classList.add('active');
+                    }
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#mega-filter')) {
+                    closeAllPanels();
+                }
+            });
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('filter-search').value.toLowerCase().trim();
+            const selectedCategories = [
+                ...Array.from(document.querySelectorAll('#filter-categories .mega-filter-chip.selected')).map(el => el.dataset.value),
+                ...Array.from(document.querySelectorAll('#filter-drinks .mega-filter-chip.selected')).map(el => el.dataset.value)
+            ];
+            const selectedDistricts = Array.from(
+                document.querySelectorAll('#filter-districts .mega-filter-chip.selected')
+            ).map(el => el.dataset.value);
+
+            filteredRestaurants = restaurantsData.restaurants.filter(restaurant => {
+                if (searchTerm && !restaurant.name.toLowerCase().includes(searchTerm) &&
+                    !restaurant.category.toLowerCase().includes(searchTerm)) {
+                    return false;
+                }
+                if (selectedCategories.length > 0 && !selectedCategories.includes(restaurant.category)) {
+                    return false;
+                }
+                if (selectedDistricts.length > 0 && !selectedDistricts.includes(restaurant.district)) {
+                    return false;
+                }
+                return true;
+                
+            });
+
+            // Reset về trang 1 khi lọc thay đổi
+            currentPage = 1;
+
+            // Apply current sorting
+            applySorting(false);
+            renderRestaurants();
+            //document.getElementById('pagination').innerHTML = '';
+        }
+
+        function applySorting(reapplyFilters = true) {
+            if (reapplyFilters) {
+                applyFilters();
+                return;
+            }
+
+            const sortValue = document.getElementById('sort-by').value;
+
+            switch (sortValue) {
+                case 'rating-desc':
+                    filteredRestaurants.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'rating-asc':
+                    filteredRestaurants.sort((a, b) => a.rating - b.rating);
+                    break;
+                case 'review-desc':
+                    filteredRestaurants.sort((a, b) => b.reviewCount - a.reviewCount);
+                    break;
+                case 'name-asc':
+                    filteredRestaurants.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    filteredRestaurants.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+            }
+
+            renderRestaurants();
+        }
+
+        function renderRestaurants() {
+            const container = document.getElementById('restaurants-container');
+            const noResults = document.getElementById('no-results');
+            const resultsCount = document.getElementById('results-count');
+
+            resultsCount.textContent = filteredRestaurants.length;
+
+            if (filteredRestaurants.length === 0) {
+                container.innerHTML = '';
+                noResults.style.display = 'block';
+                renderPagination(0);
+                return;
+            }
+
+            noResults.style.display = 'none';
+
+            // Tính slice cho trang hiện tại
+            const totalPages = Math.ceil(filteredRestaurants.length / ITEMS_PER_PAGE);
+            if (currentPage > totalPages) currentPage = totalPages;
+            const start = (currentPage - 1) * ITEMS_PER_PAGE;
+            const pageItems = filteredRestaurants.slice(start, start + ITEMS_PER_PAGE);
+
+            container.className = 'grid-6';
+            container.innerHTML = pageItems.map(restaurant => `
+                    <div class="restaurant-card" onclick="window.location.href='detail.html?id=${restaurant.id}'" style="cursor:pointer;">
+                        <div class="restaurant-image">
+                            <img src="${restaurant.image}" alt="${restaurant.name}">
+                            <div class="restaurant-badge">${restaurant.category}</div>
+                                <button class="restaurant-favorite" data-restaurant-id="${restaurant.id}" onclick="event.stopPropagation(); toggleFavorite(${restaurant.id})">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="restaurant-info">
+                            <h3 class="restaurant-name">${restaurant.name}</h3>
+                            <div class="restaurant-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${restaurant.district}</span>
+                            </div>
+                            <div class="restaurant-footer">
+                                <div class="restaurant-rating">
+                                    <div class="stars">${generateStars(restaurant.rating)}</div>
+                                    <span class="rating-text">${restaurant.rating}</span>
+                                    <span class="review-count">(${restaurant.reviewCount})</span>
+                                </div>
+                                <span class="restaurant-price">${restaurant.priceRange}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+            renderPagination(filteredRestaurants.length);
+            updateFavoriteButtons();
+        }
+
+        function renderPagination(totalItems) {
+            const pagination = document.getElementById('pagination');
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            const pages = getPageNumbers(currentPage, totalPages);
+            let html = '';
+
+            // Nút Prev
+            html += `<button ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})" title="Trang trước">
+                        <i class="fas fa-chevron-left"></i>
+                     </button>`;
+
+            // Số trang
+            pages.forEach(p => {
+                if (p === '...') {
+                    html += `<button class="pagination-ellipsis" disabled>···</button>`;
+                } else {
+                    html += `<button class="${p === currentPage ? 'active' : ''}" onclick="goToPage(${p})">${p}</button>`;
+                }
+            });
+
+            // Nút Next
+            html += `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})" title="Trang sau">
+                        <i class="fas fa-chevron-right"></i>
+                     </button>`;
+
+            // Info
+            html += `<span class="pagination-info">Trang ${currentPage} / ${totalPages}</span>`;
+
+            pagination.innerHTML = html;
+        }
+
+        function getPageNumbers(current, total) {
+            if (total <= 7) {
+                return Array.from({ length: total }, (_, i) => i + 1);
+            }
+            if (current <= 4) {
+                return [1, 2, 3, 4, 5, '...', total];
+            }
+            if (current >= total - 3) {
+                return [1, '...', total - 4, total - 3, total - 2, total - 1, total];
+            }
+            return [1, '...', current - 1, current, current + 1, '...', total];
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderRestaurants();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-search').value = '';
+            document.querySelectorAll('.mega-filter-chip.selected').forEach(chip => chip.classList.remove('selected'));
+            updateTabCounts();
+            updateActiveFilterTags();
+            applyFilters();
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            loadRestaurantData();
+            renderWishlistDrawer();
+            updateWishlistBadge();
+            
+            // Setup search input event listener
+            const filterSearch = document.getElementById('filter-search');
+            if (filterSearch) {
+                filterSearch.addEventListener('input', () => {
+                    updateActiveFilterTags();
+                    applyFilters();
+                });
+            }
+            
+            // Sort-by change listener
+            document.addEventListener('change', (e) => {
+                if (e.target.id === 'sort-by') {
+                    applySorting();
+                }
+            });
+
+            // Open wishlist drawer if URL hash is #wishlist
+            if (window.location.hash === '#wishlist') {
+                setTimeout(() => toggleWishlistDrawer(), 300);
+            }
+
+            
+        });
+
+        const topAdSwiper = new Swiper('.top-ad-swiper', {
+            loop: true, // Lặp lại vô hạn
+            autoplay: {
+                delay: 3500, // Chuyển slide sau mỗi 3.5 giây
+                disableOnInteraction: false, // Vẫn tự động chạy sau khi người dùng lướt
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'fade', // Hiệu ứng mờ dần (tùy chọn, bạn có thể xóa dòng này nếu thích kiểu trượt)
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // ===================================
+        // WISHLIST DRAWER
+        // ===================================
+
+        function toggleWishlistDrawer() {
+            const drawer = document.getElementById('wishlist-drawer');
+            const overlay = document.getElementById('wishlist-overlay');
+            const isOpen = drawer.classList.contains('open');
+            if (isOpen) {
+                drawer.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                renderWishlistDrawer();
+                drawer.classList.add('open');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function renderWishlistDrawer() {
+            const favorites = getFavorites();
+            const list = document.getElementById('wishlist-drawer-list');
+            const countEl = document.getElementById('wishlist-drawer-count');
+            const footer = document.getElementById('wishlist-drawer-footer');
+
+            countEl.textContent = `${favorites.length} quán đã lưu`;
+            footer.style.display = favorites.length > 0 ? 'block' : 'none';
+
+            if (favorites.length === 0) {
+                list.innerHTML = `
+                    <div class="wishlist-empty">
+                        <i class="far fa-heart"></i>
+                        <p>Chưa có quán nào trong Góc Yêu Thích</p>
+                        <small>Bấm vào ❤️ trên thẻ quán ăn để lưu vào đây</small>
+                    </div>`;
+                return;
+            }
+
+            // If restaurantsData is loaded, render full info; else just IDs
+            if (restaurantsData) {
+                const savedRestaurants = restaurantsData.restaurants.filter(r => favorites.includes(r.id));
+                list.innerHTML = savedRestaurants.map(r => `
+                    <div class="wishlist-item">
+                        <img src="${r.image}" alt="${r.name}" onclick="window.location.href='detail.html?id=${r.id}'">
+                        <div class="wishlist-item-info" onclick="window.location.href='detail.html?id=${r.id}'">
+                            <div class="wishlist-item-name">${r.name}</div>
+                            <div class="wishlist-item-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> ${r.district}</span>
+                                <span><i class="fas fa-tag"></i> ${r.category}</span>
+                            </div>
+                            <div class="wishlist-item-rating">
+                                <span style="color:#ff9800;">★</span> ${r.rating}
+                                <span class="wishlist-item-price">${r.priceRange}</span>
+                            </div>
+                        </div>
+                        <button class="wishlist-item-remove" onclick="removeFromWishlist(${r.id})" title="Xóa khỏi Góc Yêu Thích">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function removeFromWishlist(id) {
+            const favorites = getFavorites();
+            const idx = favorites.indexOf(Number(id));
+            if (idx > -1) favorites.splice(idx, 1);
+            saveFavorites(favorites);
+            renderWishlistDrawer();
+            updateWishlistBadge();
+            updateFavoriteButtons();
+        }
+
+        function clearAllWishlist() {
+            if (!confirm('Xóa tất cả quán khỏi Góc Yêu Thích?')) return;
+            localStorage.removeItem('favorites');
+            renderWishlistDrawer();
+            updateWishlistBadge();
+            updateFavoriteButtons();
+        }
+
+        function updateWishlistBadge() {
+            const count = getFavorites().length;
+            const badge = document.getElementById('wishlist-badge');
+            if (!badge) return;
+            badge.textContent = count;
+            badge.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        // Patch: after toggleFavorite (from script.js), sync badge
+        const _origToggleFav = window.toggleFavorite;
+        window.toggleFavorite = function(id) {
+            _origToggleFav(id);
+            updateWishlistBadge();
+            if (document.getElementById('wishlist-drawer').classList.contains('open')) {
+                renderWishlistDrawer();
+            }
+        };
+    </script>
+    
+    <!-- <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+    <script>
+    new CozeWebSDK.WebChatClient({
+        config: {
+        bot_id: '7653532768823558197',
+        },
+        componentProps: {
+        title: 'Coze',
+        },
+        auth: {
+        type: 'token',
+        token: 'pat_********',
+        onRefreshToken: function () {
+            return 'pat_********'
+        }
+        }
+    });
+    </script> -->
+
+</body>
+</html>

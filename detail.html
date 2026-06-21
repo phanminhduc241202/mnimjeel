@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="title" content="MNIMJEEL - Detail">
+    <meta name="description" content="Xem chi tiết quán ăn, ảnh, menu, địa chỉ, phone, giờ mở, đánh giá, videos TikTok.">
+
+    <title>MNIMJEEL</title>
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+
+    <style>
+        .detail-hero {
+            width: 100%;
+            height: 40rem;
+            object-fit: cover;
+            margin-top: 18rem;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 9%;
+        }
+
+        .detail-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .detail-left h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .detail-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .detail-meta-item i {
+            font-size: 2rem;
+            color: #219150;
+        }
+
+        .detail-rating {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .gallery-slider {
+            margin: 3rem 0;
+        }
+
+        .menu-section {
+            margin: 3rem 0;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-item {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+            background: #fff;
+            cursor: default;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .menu-item-img {
+            width: 100%;
+            height: 15rem;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-item-name {
+            padding: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #222;
+            text-align: center;
+            background: #fff;
+        }
+
+        .tiktok-section {
+            margin: 3rem 0;
+        }
+
+        .tiktok-videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ---- Lightbox ---- */
+        .lb-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+        }
+        .lb-overlay.open { display: flex; }
+
+        .lb-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lb-img {
+            max-width: 88vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            display: block;
+        }
+
+        .lb-caption {
+            position: absolute;
+            bottom: -3.5rem;
+            left: 0; right: 0;
+            text-align: center;
+            color: #fff;
+            font-size: 1.4rem;
+            opacity: 0.85;
+        }
+
+        .lb-close {
+            position: fixed;
+            top: 1.8rem; right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 100000;
+            transition: opacity 0.2s;
+        }
+        .lb-close:hover { opacity: 0.7; }
+
+        .lb-arrow {
+            position: fixed;
+            top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: #fff;
+            font-size: 2.4rem;
+            width: 5rem; height: 5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 100000;
+            transition: background 0.2s;
+        }
+        .lb-arrow:hover { background: rgba(255,255,255,0.3); }
+        .lb-prev { left: 1.5rem; }
+        .lb-next { right: 1.5rem; }
+        .lb-arrow.hidden { display: none; }
+
+        .lb-counter {
+            position: fixed;
+            top: 1.8rem; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.7);
+            font-size: 1.3rem;
+        }
+
+        /* make clickable images look interactive */
+        .gallery-swiper .swiper-slide img,
+        .menu-item { cursor: zoom-in; }
+
+        .tiktok-embed {
+            aspect-ratio: 9 / 16;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .review-form {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .reviews-list {
+            margin: 2rem 0;
+        }
+
+        .review-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #eee;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #10221b;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 1.3rem;
+        }
+
+        .review-rating {
+            color: #ff9800;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        #restaurant-map {
+            width: 100%;
+            height: 40rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .detail-info {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-hero {
+                height: 25rem;
+            }
+
+            .detail-left h2 {
+                font-size: 2rem;
+            }
+
+            .detail-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!-- Row 1: Brand bar -->
+        <div class="header-top">
+            <a href="restaurants.html" class="logo">
+                <i class="fas fa-house"></i> <span style="color: #ADD8E6;">MNIM</span><span style="color: #E950B8;">JEEL</span>
+            </a>
+            <div class="icons">
+                <a href="restaurants.html#wishlist" class="wishlist-icon-btn" id="wishlist-icon-btn" title="Góc Yêu Thích">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-badge" id="wishlist-badge" style="display:none;">0</span>
+                </a>
+                <div id="menu-btn" class="fas fa-bars"></div>
+            </div>
+        </div>
+
+        <!-- Row 2: Mega Filter -->
+        <div class="header-filter-row mega-filter" id="mega-filter">
+            <div class="mega-filter-bar">
+                <div class="mega-filter-search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="filter-search" placeholder="Tìm kiếm quán ăn..." onkeydown="if(event.key==='Enter') redirectToSearch()">
+                </div>
+
+                <button class="mega-filter-tab" id="tab-categories" data-panel="panel-categories">
+                    <span class="tab-label">Loại Ăn</span>
+                    <span class="tab-count" id="count-categories"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <button class="mega-filter-tab" id="tab-districts" data-panel="panel-districts">
+                    <span class="tab-label">Quận Huyện</span>
+                    <span class="tab-count" id="count-districts"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <button class="mega-filter-tab" id="tab-drinks" data-panel="panel-drinks">
+                    <span class="tab-label">Đồ Uống</span>
+                    <span class="tab-count" id="count-drinks"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <button class="mega-filter-tab" onclick="redirectToSearch()" style="background:#219150; color:#fff; border-color:#219150;">
+                    <i class="fas fa-search"></i> Tìm
+                </button>
+            </div>
+
+            <!-- Categories Dropdown -->
+            <div class="mega-filter-dropdown" id="panel-categories">
+                <p class="mega-filter-dropdown-title">Chọn loại ăn</p>
+                <div class="mega-filter-chips" id="filter-categories"></div>
+                <div class="mega-filter-dropdown-footer">
+                    <button onclick="redirectToSearch()"><i class="fas fa-search"></i> Tìm ngay</button>
+                </div>
+            </div>
+
+            <!-- Districts Dropdown -->
+            <div class="mega-filter-dropdown" id="panel-districts">
+                <p class="mega-filter-dropdown-title">Chọn quận huyện</p>
+                <div class="mega-filter-chips" id="filter-districts"></div>
+                <div class="mega-filter-dropdown-footer">
+                    <button onclick="redirectToSearch()"><i class="fas fa-search"></i> Tìm ngay</button>
+                </div>
+            </div>
+
+            <!-- Drinks Dropdown -->
+            <div class="mega-filter-dropdown" id="panel-drinks">
+                <p class="mega-filter-dropdown-title">Chọn loại đồ uống</p>
+                <div class="mega-filter-chips" id="filter-drinks"></div>
+                <div class="mega-filter-dropdown-footer">
+                    <button onclick="redirectToSearch()"><i class="fas fa-search"></i> Tìm ngay</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 3: Sub-nav bar -->
+        <div class="header-subnav">
+            <a href="restaurants.html" class="subnav-back">
+                <i class="fas fa-arrow-left"></i> Quay Lại Danh Sách
+            </a>
+            <div class="subnav-breadcrumb">
+                <a href="restaurants.html">Trang Chủ</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-name">Chi Tiết Quán Ăn</span>
+            </div>
+        </div>
+
+    </header>
+    <!-- MAIN CONTENT -->
+    <main id="detail-content">
+        <!-- Loaded by JS -->
+    </main>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about-section">
+        <div class="about-inner">
+
+            <div class="about-stats">
+                <div class="about-stat">
+                    <span class="about-stat-num">1,000+</span>
+                    <span class="about-stat-label"><i class="fas fa-store"></i> Quán Ăn</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">24</span>
+                    <span class="about-stat-label"><i class="fas fa-map-marker-alt"></i> Quận Huyện</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">50+</span>
+                    <span class="about-stat-label"><i class="fas fa-utensils"></i> Loại Món</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-num">5★</span>
+                    <span class="about-stat-label"><i class="fas fa-star"></i> Đánh Giá</span>
+                </div>
+            </div>
+
+            <div class="about-body">
+                <div class="about-left">
+                    <h2 class="about-heading">Về <span style="color:#ADD8E6;">MNIM</span><span style="color:#E950B8;">JEEL</span></h2>
+                    <p class="about-desc">
+                        <strong style="color:#ADD8E6;">MNIM</strong><strong style="color:#E950B8;">JEEL</strong> HCMC được thành lập với mục đích giúp bạn khám phá những quán ăn tốt nhất ở Thành phố Hồ Chí Minh. Chúng tôi tin rằng mỗi trải nghiệm ẩm thực đều đặc biệt và xứng đáng được chia sẻ.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-search"></i></div>
+                            <div>
+                                <strong>Tìm Kiếm Dễ Dàng</strong>
+                                <p>Lọc theo loại ăn, quận huyện và nhiều tiêu chí khác.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <strong>Góc Yêu Thích</strong>
+                                <p>Lưu những quán ăn yêu thích để ghé thăm sau.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Chỉ Đường Nhanh</strong>
+                                <p>Liên kết trực tiếp đến Google Maps từ trang chi tiết.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-right">
+                    <h3 class="about-heading" style="font-size:2rem;">Liên Hệ Chúng Tôi</h3>
+                    <form class="about-contact-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã liên hệ!');">
+                        <div class="form-group">
+                            <label>Tên của bạn</label>
+                            <input type="text" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tin Nhắn</label>
+                            <textarea placeholder="Nhập tin nhắn của bạn..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">
+                            <i class="fas fa-paper-plane"></i> Gửi Tin Nhắn
+                        </button>
+                    </form>
+                    <div class="about-social">
+                        <span>Theo dõi chúng tôi:</span>
+                        <div class="about-social-links">
+                            <a href="https://www.facebook.com/phan.minh.uc.542876/" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/dduwcs2412/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@yourprofile" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.linkedin.com/in/duc241202/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h4><span style="color: #ADD8E6;">MNIM</span><span style="color: #E950B8;">JEEL</span> HCMC</h4>
+                <p>Khám phá những quán ăn tốt nhất ở Thành phố Hồ Chí Minh.</p>
+            </div>            
+            <div>
+                <h4>Contact</h4>
+                <p>Email: pmd241203@gmail.com</p>
+                <p>Phone: (84+) 868 310 075</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> <span style="color: #ADD8E6;">MNIM</span><span style="color: #E950B8;">JEEL</span> Everything here is for you                              
+                <i class="fas fa-heart" style="color: #E950B8;"></i></p>
+        </div>
+    </footer>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fab-group">
+        <a href="#top" class="to-top" id="to-top-btn">
+            Lên đầu <i class="fas fa-angle-double-up"></i>
+        </a>
+        <a href="#about-section" class="fab-contact">
+            Liên hệ <i class="fas fa-headset"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Detail Page Logic -->
+    <script>
+        let restaurantsData = null;
+        let currentRestaurant = null;
+
+        async function loadRestaurantData() {
+            try {
+                const response = await fetch('data/restaurants.json');
+                restaurantsData = await response.json();
+                loadRestaurantDetail();
+                loadDetailFilterOptions();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function getRestaurantIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'));
+        }
+
+        function loadRestaurantDetail() {
+            const restaurantId = getRestaurantIdFromURL();
+            currentRestaurant = restaurantsData.restaurants.find(r => r.id === restaurantId);
+
+            if (!currentRestaurant) {
+                document.getElementById('detail-content').innerHTML = `
+                    <div class="detail-container">
+                        <h1>Quán ăn không tìm thấy</h1>
+                        <a href="restaurants.html" class="btn btn-primary mt-2">Quay lại</a>
+                    </div>
+                `;
+                return;
+            }
+
+            renderDetailPage();
+        }
+
+        function renderDetailPage() {
+            // Update breadcrumb
+            const bc = document.getElementById('breadcrumb-name');
+            if (bc) bc.textContent = currentRestaurant.name;
+            const html = `
+                <img src="${currentRestaurant.posterImage || currentRestaurant.image}" alt="${currentRestaurant.name}" class="detail-hero">
+
+                <div class="detail-container">
+                    <div class="detail-info">
+                        <div class="detail-left">
+                            <div style="display: flex; justify-content: space-between; align-items: start;">
+                                <div>
+                                    <h2>${currentRestaurant.name}</h2>
+                                    <span class="restaurant-category">${currentRestaurant.category}</span>
+                                </div>
+                                <button class="restaurant-favorite" data-restaurant-id="${currentRestaurant.id}" onclick="toggleFavorite(${currentRestaurant.id})">
+                                    <i class="far fa-heart fa-2x"></i>
+                                </button>
+                            </div>
+
+                            <div class="detail-meta">
+                                <div class="detail-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span><a href="${currentRestaurant.googleMapsUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${currentRestaurant.address}</a></span>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:${currentRestaurant.phone}">${currentRestaurant.phone}</a>
+                                </div>
+                                <div class="detail-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>${currentRestaurant.openTime} - ${currentRestaurant.closeTime}</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-rating">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <div class="stars" style="font-size: 2.5rem;">
+                                        ${generateStars(currentRestaurant.rating)}
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 2rem; font-weight: 700; color: #10221b;">
+                                            ${currentRestaurant.rating}
+                                        </div>
+                                        <div style="color: #666;">
+                                            ${currentRestaurant.reviewCount} đánh giá
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 style="margin: 2rem 0 1rem;">Mô Tả</h3>
+                                <p>${currentRestaurant.description}</p>
+                            </div>
+
+                            ${currentRestaurant.images && currentRestaurant.images.length > 0 ? `
+                                <div class="gallery-slider">
+                                    <h3>Hình Ảnh</h3>
+                                    <div class="swiper gallery-swiper" style="margin-top: 1rem;">
+                                        <div class="swiper-wrapper">
+                                            ${currentRestaurant.images.map((img, idx) => `
+                                                <div class="swiper-slide" onclick="lbOpen(window._lb_gallery, ${idx})" style="cursor:zoom-in;">
+                                                    <img src="${img}" alt="Gallery" style="width: 100%; height: 30rem; object-fit: cover; border-radius: 10px;">
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            ${currentRestaurant.menu && currentRestaurant.menu.length > 0 ? `
+                                <div class="menu-section">
+                                    <h3>Menu</h3>
+                                    <div class="menu-items">
+                                        ${currentRestaurant.menu.map((item, idx) => {
+                                            const name = typeof item === 'string' ? item : item.name;
+                                            const img  = typeof item === 'string' ? currentRestaurant.image : (item.image || currentRestaurant.image);
+                                            return `
+                                            <div class="menu-item" onclick="lbOpen(window._lb_menu, ${idx}, window._lb_menuNames[${idx}])" style="cursor:zoom-in;">
+                                                <img class="menu-item-img" src="${img}" alt="${name}" onerror="this.src='${currentRestaurant.image}'">
+                                                <div class="menu-item-name">${name}</div>
+                                            </div>`;
+                                        }).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            ${currentRestaurant.tiktokVideos && currentRestaurant.tiktokVideos.length > 0 ? `
+                                <div class="tiktok-section">
+                                    <h3>Video TikTok</h3>
+                                    <div class="tiktok-videos">
+                                        ${currentRestaurant.tiktokVideos.map((videoUrl, index) => `
+                                            <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" class="btn">
+                                                <i class="fab fa-tiktok"></i> Xem Video Review ${index + 1}
+                                            </a>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <div class="review-form">
+                                <h3>Để Lại Đánh Giá</h3>
+                                <form id="review-form-element" onsubmit="submitReview(event, ${currentRestaurant.id})">
+                                    <div class="form-group">
+                                        <label>Tên của bạn:</label>
+                                        <input type="text" id="review-author" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Đánh giá:</label>
+                                        <div class="rating" id="rating-selector">
+                                            <span class="star" data-value="1">★</span>
+                                            <span class="star" data-value="2">★</span>
+                                            <span class="star" data-value="3">★</span>
+                                            <span class="star" data-value="4">★</span>
+                                            <span class="star" data-value="5">★</span>
+                                        </div>
+                                        <input type="hidden" id="review-rating" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Bình luận:</label>
+                                        <textarea id="review-comment" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Gửi Đánh Giá</button>
+                                </form>
+                            </div>
+
+                            <div class="reviews-list">
+                                <h3>Các Đánh Giá Khác</h3>
+                                <div id="reviews-container">
+                                    <!-- Reviews loaded by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-right">
+                            <div class="card p-2">
+                                <h4 style="margin-bottom: 1rem;">Thông Tin Liên Hệ</h4>
+                                <p><i class="fas fa-map-marker-alt"></i> <strong>${currentRestaurant.district}</strong></p>
+                                <p style="margin: 1rem 0;"><strong>Địa chỉ:</strong></p>
+                                <p>${currentRestaurant.address}</p>
+                                <p style="margin: 1rem 0;"><a href="tel:${currentRestaurant.phone}" class="btn btn-primary" style="width: 100%; text-align: center;">
+                                    <i class="fas fa-phone"></i> Gọi Điện
+                                </a></p>
+                                <p><a href="${currentRestaurant.googleMapsUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">
+                                    <i class="fas fa-directions"></i> Chỉ Đường
+                                </a></p>
+                                <hr style="margin: 1rem 0;">
+                                <p><strong>Giờ mở cửa:</strong> ${currentRestaurant.openTime}</p>
+                                <p><strong>Giờ đóng cửa:</strong> ${currentRestaurant.closeTime}</p>
+                                <p style="margin: 1rem 0;"><strong>Mức giá:</strong> <span class="restaurant-price">${currentRestaurant.priceRange}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('detail-content').innerHTML = html;
+
+            // Store image arrays globally for lightbox (avoids JSON-in-attribute quoting issues)
+            window._lb_gallery = currentRestaurant.images || [];
+            window._lb_menu = (currentRestaurant.menu || []).map(m =>
+                typeof m === 'string' ? currentRestaurant.image : (m.image || currentRestaurant.image)
+            );
+            window._lb_menuNames = (currentRestaurant.menu || []).map(m =>
+                typeof m === 'string' ? m : m.name
+            );
+
+            setupRatingSelector();
+            loadReviews(currentRestaurant.id);
+            updateFavoriteButtons();
+        }
+
+        function setupRatingSelector() {
+            const stars = document.querySelectorAll('#rating-selector .star');
+            const ratingInput = document.getElementById('review-rating');
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    const rating = star.getAttribute('data-value');
+                    ratingInput.value = rating;
+
+                    stars.forEach(s => s.classList.remove('active'));
+                    for (let i = 0; i < rating; i++) {
+                        stars[i].classList.add('active');
+                    }
+                });
+
+                star.addEventListener('mouseover', () => {
+                    const rating = star.getAttribute('data-value');
+                    stars.forEach(s => s.classList.remove('active'));
+                    for (let i = 0; i < rating; i++) {
+                        stars[i].classList.add('active');
+                    }
+                });
+            });
+
+            document.getElementById('rating-selector').addEventListener('mouseleave', () => {
+                const rating = ratingInput.value;
+                stars.forEach(s => s.classList.remove('active'));
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('active');
+                }
+            });
+        }
+
+        function submitReview(e, restaurantId) {
+            e.preventDefault();
+
+            const author = document.getElementById('review-author').value;
+            const rating = document.getElementById('review-rating').value;
+            const comment = document.getElementById('review-comment').value;
+
+            if (!rating) {
+                alert('Vui lòng chọn đánh giá sao');
+                return;
+            }
+
+            const reviews = JSON.parse(localStorage.getItem(`restaurant_${restaurantId}_reviews`) || '[]');
+            reviews.push({
+                author,
+                rating: parseInt(rating),
+                comment,
+                date: new Date().toISOString().split('T')[0]
+            });
+
+            localStorage.setItem(`restaurant_${restaurantId}_reviews`, JSON.stringify(reviews));
+
+            document.getElementById('review-form-element').reset();
+            document.getElementById('review-rating').value = '0';
+            document.querySelectorAll('#rating-selector .star').forEach(s => s.classList.remove('active'));
+
+            loadReviews(restaurantId);
+            alert('Cảm ơn đánh giá của bạn!');
+        }
+
+        function loadReviews(restaurantId) {
+            const reviews = JSON.parse(localStorage.getItem(`restaurant_${restaurantId}_reviews`) || '[]');
+            const container = document.getElementById('reviews-container');
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p style="color: #999;">Chưa có đánh giá nào. Hãy là người đầu tiên!</p>';
+                return;
+            }
+
+            container.innerHTML = reviews.map(review => `
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">${review.author}</span>
+                        <span class="review-date">${review.date}</span>
+                    </div>
+                    <div class="review-rating">${generateStars(review.rating)}</div>
+                    <p class="review-text">${review.comment}</p>
+                </div>
+            `).join('');
+        }
+
+        window.addEventListener('load', () => {
+            loadRestaurantData();
+            // Update wishlist badge
+            const count = JSON.parse(localStorage.getItem('favorites') || '[]').length;
+            const badge = document.getElementById('wishlist-badge');
+            if (badge) {
+                badge.textContent = count;
+                badge.style.display = count > 0 ? 'flex' : 'none';
+            }
+        });
+
+        // ===================================
+        // MEGA FILTER (redirect mode)
+        // ===================================
+
+        function loadDetailFilterOptions() {
+            if (!restaurantsData) return;
+            const catContainer = document.getElementById('filter-categories');
+            if (catContainer) {
+                catContainer.innerHTML = restaurantsData.categories.map(cat =>
+                    `<span class="mega-filter-chip" data-value="${cat}" data-type="category" onclick="toggleDetailChip(this)">${cat}</span>`
+                ).join('');
+            }
+            const distContainer = document.getElementById('filter-districts');
+            if (distContainer) {
+                distContainer.innerHTML = restaurantsData.districts.map(d =>
+                    `<span class="mega-filter-chip" data-value="${d}" data-type="district" onclick="toggleDetailChip(this)">${d}</span>`
+                ).join('');
+            }
+            const drinkContainer = document.getElementById('filter-drinks');
+            if (drinkContainer) {
+                drinkContainer.innerHTML = (restaurantsData.drinkCategories || []).map(drink =>
+                    `<span class="mega-filter-chip" data-value="${drink}" data-type="drink" onclick="toggleDetailChip(this)">${drink}</span>`
+                ).join('');
+            }
+            setupDetailMegaFilter();
+        }
+
+        function toggleDetailChip(chip) {
+            // Single-select per group for redirect mode
+            const type = chip.dataset.type;
+            const container = type === 'category' ? '#filter-categories' : type === 'drink' ? '#filter-drinks' : '#filter-districts';
+            document.querySelectorAll(`${container} .mega-filter-chip`).forEach(c => c.classList.remove('selected'));
+            chip.classList.toggle('selected');
+            updateDetailTabCounts();
+        }
+
+        function updateDetailTabCounts() {
+            const catCount = document.querySelectorAll('#filter-categories .mega-filter-chip.selected').length;
+            const distCount = document.querySelectorAll('#filter-districts .mega-filter-chip.selected').length;
+            const drinkCount = document.querySelectorAll('#filter-drinks .mega-filter-chip.selected').length;
+            const countCat = document.getElementById('count-categories');
+            const countDist = document.getElementById('count-districts');
+            const countDrink = document.getElementById('count-drinks');
+            if (countCat) countCat.textContent = catCount || '';
+            if (countDist) countDist.textContent = distCount || '';
+            if (countDrink) countDrink.textContent = drinkCount || '';
+            document.getElementById('tab-categories').classList.toggle('has-selection', catCount > 0);
+            document.getElementById('tab-districts').classList.toggle('has-selection', distCount > 0);
+            const tabDrinks = document.getElementById('tab-drinks');
+            if (tabDrinks) tabDrinks.classList.toggle('has-selection', drinkCount > 0);
+        }
+
+        function redirectToSearch() {
+            const search = document.getElementById('filter-search').value.trim();
+            const cat = document.querySelector('#filter-categories .mega-filter-chip.selected');
+            const drink = document.querySelector('#filter-drinks .mega-filter-chip.selected');
+            const dist = document.querySelector('#filter-districts .mega-filter-chip.selected');
+            const params = new URLSearchParams();
+            if (search) params.set('search', search);
+            if (cat) params.set('category', cat.dataset.value);
+            else if (drink) params.set('category', drink.dataset.value);
+            if (dist) params.set('district', dist.dataset.value);
+            window.location.href = 'restaurants.html' + (params.toString() ? '?' + params.toString() : '');
+        }
+
+        function closeAllPanels() {
+            document.querySelectorAll('.mega-filter-dropdown.open').forEach(p => p.classList.remove('open'));
+            document.querySelectorAll('.mega-filter-tab.active').forEach(t => t.classList.remove('active'));
+        }
+
+        function setupDetailMegaFilter() {
+            document.querySelectorAll('.mega-filter-tab[data-panel]').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const panelId = tab.dataset.panel;
+                    const panel = document.getElementById(panelId);
+                    const isOpen = panel.classList.contains('open');
+                    closeAllPanels();
+                    if (!isOpen) {
+                        panel.classList.add('open');
+                        tab.classList.add('active');
+                    }
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#mega-filter')) closeAllPanels();
+            });
+        }
+
+        /* ===================== LIGHTBOX ===================== */
+        let lbImages   = [];
+        let lbCaptions = [];
+        let lbIndex    = 0;
+
+        function lbOpen(images, startIndex, caption) {
+            lbImages = Array.isArray(images) ? images : [images];
+            lbIndex  = (startIndex !== undefined) ? startIndex : 0;
+            // Build captions array: if single caption string passed, only apply to that index
+            if (Array.isArray(caption)) {
+                lbCaptions = caption;
+            } else if (typeof caption === 'string') {
+                // caption is for startIndex only — try to use window._lb_menuNames if available
+                lbCaptions = window._lb_menuNames || [];
+            } else {
+                lbCaptions = [];
+            }
+            lbRender();
+            document.getElementById('lb-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function lbRender() {
+            const img  = document.getElementById('lb-img');
+            const cap  = document.getElementById('lb-caption');
+            const ctr  = document.getElementById('lb-counter');
+            const prev = document.getElementById('lb-prev');
+            const next = document.getElementById('lb-next');
+
+            img.src = lbImages[lbIndex] || '';
+            cap.textContent = lbCaptions[lbIndex] || '';
+            ctr.textContent = lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
+            prev.classList.toggle('hidden', lbImages.length <= 1 || lbIndex === 0);
+            next.classList.toggle('hidden', lbImages.length <= 1 || lbIndex === lbImages.length - 1);
+        }
+
+        function lbNav(dir) {
+            lbIndex = Math.max(0, Math.min(lbImages.length - 1, lbIndex + dir));
+            lbRender();
+        }
+
+        function lbClose() {
+            document.getElementById('lb-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+            lbImages = []; lbCaptions = [];
+        }
+
+        function lbHandleOverlayClick(e) {
+            if (e.target === document.getElementById('lb-overlay')) lbClose();
+        }
+
+        document.addEventListener('keydown', e => {
+            const overlay = document.getElementById('lb-overlay');
+            if (!overlay || !overlay.classList.contains('open')) return;
+            if (e.key === 'Escape')      lbClose();
+            if (e.key === 'ArrowLeft')   lbNav(-1);
+            if (e.key === 'ArrowRight')  lbNav(1);
+        });
+    </script>
+    <!-- Lightbox Modal -->
+    <div class="lb-overlay" id="lb-overlay" onclick="lbHandleOverlayClick(event)">
+        <button class="lb-close" onclick="lbClose()" title="Đóng">&#x2715;</button>
+        <button class="lb-arrow lb-prev hidden" id="lb-prev" onclick="lbNav(-1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="lb-content">
+            <img class="lb-img" id="lb-img" src="" alt="">
+            <div class="lb-caption" id="lb-caption"></div>
+        </div>
+        <button class="lb-arrow lb-next hidden" id="lb-next" onclick="lbNav(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="lb-counter" id="lb-counter"></div>
+    </div>
+
+</body>
+</html>
