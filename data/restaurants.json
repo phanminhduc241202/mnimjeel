@@ -61,22 +61,20 @@
                             "description":  "Mì bò Đài Loan ngon, được làm từ nguyên liệu tươi ngon và cách chế biến đặc biệt.",
                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg",
                             "images":  [
-                                           "images/restaurants/Q7/restaurant/Meili/mi-bo-1.jpg",
-                                           "images/restaurants/Q7/restaurant/Meili/mi-bo-2.jpg"
+                                           "images/restaurants/Q7/restaurant/Meili/1.jpg",
+                                           "images/restaurants/Q7/restaurant/Meili/2.jpg",
+                                           "images/restaurants/Q7/restaurant/Meili/3.jpg"
                                        ],
                             "menu":  [
                                          {
-                                             "name":  "Mì bò",
-                                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg"
+                                             "name":  "Menu 1",
+                                             "image":  "images/restaurants/Q7/restaurant/Meili/menu1.jpg"
                                          },
                                          {
-                                             "name":  "Mì gà",
-                                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg"
-                                         },
-                                         {
-                                             "name":  "Mì tái",
-                                             "image":  "images/restaurants/Q7/restaurant/Meili/meili.jpg"
-                                         }
+                                             "name":  "Menu 2",
+                                             "image":  "images/restaurants/Q7/restaurant/Meili/menu2.jpg"
+                                         }                                        
+                                       
                                      ],
                             "tiktokVideos":  [
                                                  "https://www.tiktok.com/@meilimibodailoan/photo/7598126417053879570?q=meili\u0026t=1774691150095"
